@@ -1,0 +1,930 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script>
+            $(document).ready(function(){
+
+                //최상단 글씨 색 변화
+                $('#top_header a').hover(function(){
+                    $(this).css('color','white')
+                },function(){
+                    $(this).css('color','lightgray')
+                })
+
+                $('.lang_turn p').hover(function(){
+                    $(this).css('color','white')
+                },function(){
+                    $(this).css('color','lightgray')
+                })
+
+                //네비게이션 글씨 색 변화
+                $('#header a').hover(function(){
+                    $(this).css('color','#18aa9b')
+                },function(){
+                    $(this).css('color','black')
+                })
+
+                $('.nav_menu_7').hover(function(){
+                    $(this).css('background-color','#3bafb0')
+                    $('.nav_menu_7 .img1').css('display','none')
+                    $('.nav_menu_7 .img2').css('display','inline-block')
+                },function(){
+                    $(this).css('background-color','#222222')
+                    $('.nav_menu_7 .img1').css('display','inline-block')
+                    $('.nav_menu_7 .img2').css('display','none')
+                })
+
+                 //스크롤시 메인 네비게이션 상단 fix
+                 var scrollheight=$(window).scrollTop()
+                    if(scrollheight==0){
+                        $('#header .logo').css({
+                            position:'relative',
+                            top:'20px',
+                            cursor:'pointer',
+                        })
+                        $('#header>.wrapper>div').css({
+                            display:'inline-block',
+                            marginLeft:'25px',
+                            height:'90px',
+                            fontSize:'18px',
+                            fontWeight:'bold',
+                            color:'black'
+                        })
+                        $('#header>.wrapper>div>a').css({
+                            color:'black'
+                        })
+                        $('#header .nav_menu_1').css({
+                            marginLeft:'120px'
+                        })
+                        $('#header .nav_menu_7').css({
+                            position:'relative',
+                            top:'10px',
+                            backgroundColor:'#222222',
+                            width:'60px',
+                            height:'39px',
+                            borderRadius:'20px',
+                            paddingLeft:'18px',
+                            paddingTop:'1px'
+                        })
+                        $('.nav_menu_7 .img2').css({
+                            display:'none'
+                        })
+                    }
+                $(window).scroll(function(){
+                    $('#header').css({
+                        backgroundColor:"white",
+                        opacity:"0.8",
+                        position:"fixed",
+                        top:'0px',
+                        height:'50px',
+                        zIndex:'4',
+                        width:'1590px',
+                        borderBottom:'0.3px solid rgb(231,231,231)'
+                    })
+                    $('#header .logo').css({
+                        width:'135',
+                        height:'26',
+                        top:'10px'
+                    })
+                    $('#header>.wrapper>div').css({
+                        height:'40px',
+                        fontSize:'15px',
+                        marginTop:'-10px'
+                    })
+                    $('.nav_menu_1').css({
+                        marginLeft:'300px'
+                    })
+                    $('.nav_menu_7').css({
+                        top:'13px'
+                    })
+                    var scrollheight=$(window).scrollTop()
+                    if(scrollheight==0){
+                        $('#header').css({
+                            backgroundColor:"white",
+                            opacity:"1",
+                            position:"relative",
+                            top:'0px',
+                            zIndex:'4',
+                            width:'1590px',
+                            border:'none'
+                    })
+                        $('#header .logo').css({
+                            position:'relative',
+                            top:'20px',
+                            width:'270',
+                            height:'52',
+                            cursor:'pointer',
+                        })
+                        $('#header>.wrapper>div').css({
+                            display:'inline-block',
+                            marginLeft:'25px',
+                            height:'90px',
+                            fontSize:'18px',
+                            fontWeight:'bold',
+                            color:'black'
+                        })
+                        $('#header>.wrapper>div>a').css({
+                            color:'black'
+                        })
+                        $('#header .nav_menu_1').css({
+                            marginLeft:'120px'
+                        })
+                        $('#header .nav_menu_7').css({
+                            position:'relative',
+                            top:'10px',
+                            backgroundColor:'#222222',
+                            width:'60px',
+                            height:'39px',
+                            borderRadius:'20px',
+                            paddingLeft:'18px',
+                            paddingTop:'1px'
+                        })
+                        $('.nav_menu_7 .img2').css({
+                            display:'none'
+                        })
+                        $('.main_ad_nav_1,.main_ad_nav_2,.main_ad_nav_3').css({
+                            position:'absolute',
+                            top:'300px'
+                        })
+                        $('.main_ad_left-button,.main_ad_right-button').css({
+                            position:'absolute',
+                            top:'100px'
+                        })
+                        $('section').css({
+                            position:'relative',
+                            top:'70px'
+                        })
+                        $('#footer').css({
+                            position:'relative',
+                            top:'200px'
+                        })
+                        
+                    }
+                })
+               
+                //메인광고 슬라이드
+                    //변수를 선언합니다. 
+
+                var currentPage = 0;
+                
+                 var changePage= function(){
+                    $('[data-role="slider"]>.main_ad_container').animate({
+                        left:-currentPage*1590
+                    },500);
+                };
+               
+                //옆으로 가는 화살표가 보이게 함
+                $('.main_ad_left-button').hover(function(){
+                    $('.main_ad_left-button,.main_ad_right-button').css('opacity','1')
+                },function(){
+                    $('.main_ad_left-button,.main_ad_right-button').css('opacity','0')
+                })
+
+                $('.main_ad_right-button').hover(function(){
+                    $('.main_ad_right-button,.main_ad_left-button').css('opacity','1')
+                },function(){
+                    $('.main_ad_right-button,.main_ad_left-button').css('opacity','0')
+                })
+
+                //클릭시 이동 //이동시 세점의 색 변화도 고려
+                $('.main_ad_left-button>p').click(function(){
+                    if(currentPage>0){
+                        //왼쪽으로 이동
+                        currentPage = currentPage -1;
+                        changePage();
+                    }
+                    if(currentPage==0){
+                            $('.main_ad_nav_1').css('background-color','#18aa9b')
+                            $('.main_ad_nav_2,.main_ad_nav_3').css('background-color','black')
+                        }
+                    if(currentPage==1){
+                            $('.main_ad_nav_2').css('background-color','#18aa9b')
+                            $('.main_ad_nav_1,.main_ad_nav_3').css('background-color','black')
+                        }
+                    if(currentPage==2){
+                            $('.main_ad_nav_3').css('background-color','#18aa9b')
+                            $('.main_ad_nav_1,.main_ad_nav_2').css('background-color','black')
+                    }
+                });
+                $('.main_ad_right-button>p').click(function(){
+                    if(currentPage<2){
+                        //오른쪽으로 이동
+                        currentPage = currentPage +1;
+                        changePage();
+                    } 
+                    if(currentPage==0){
+                            $('.main_ad_nav_1').css('background-color','#18aa9b')
+                            $('.main_ad_nav_2,.main_ad_nav_3').css('background-color','black')
+                        }
+                    if(currentPage==1){
+                            $('.main_ad_nav_2').css('background-color','#18aa9b')
+                            $('.main_ad_nav_1,.main_ad_nav_3').css('background-color','black')
+                    }
+                    if(currentPage==2){
+                            $('.main_ad_nav_3').css('background-color','#18aa9b')
+                            $('.main_ad_nav_1,.main_ad_nav_2').css('background-color','black')
+                    }
+                });
+
+                //세점으로 이동
+                $('.main_ad_nav_1').click(function(){
+                        //1번으로 이동
+                        $(this).css('background-color','#18aa9b')
+                        $('.main_ad_nav_2,.main_ad_nav_3').css('background-color','black')
+                        currentPage = 0;
+                        changePage();
+                });
+                $('.main_ad_nav_2').click(function(){
+                        $(this).css('background-color','#18aa9b')
+                        $('.main_ad_nav_1,.main_ad_nav_3').css('background-color','black')
+                        currentPage = 1;
+                        changePage();
+                    })
+                $('.main_ad_nav_3').click(function(){
+                        $(this).css('background-color','#18aa9b')
+                        $('.main_ad_nav_1,.main_ad_nav_2').css('background-color','black')
+                        currentPage = 2
+                        changePage();
+                });
+
+                //article_3 속성
+                //이미지 opacity 조절 및 글씨 색상 전환
+                $('#article_2 div').hover(function(){
+                    $(this).find('img').css('opacity','1')
+                    $(this).find('p').css('color','#18aa9b')
+                },function(){
+                    $(this).find('img').css('opacity','0.6')
+                    $(this).find('p').css('color','black')
+                })
+                //article_4 속성
+                //슬라이드 변수 지정
+                var currentPage2 = 0;
+                
+                 var changePage2= function(){
+                    $('[data-role="slider2"]>.sub_ad_container').animate({
+                        left:-currentPage2*1113
+                    },500);
+                };
+               
+                //옆으로 가는 화살표가 보이게 함
+                $('.sub_ad_container').hover(function(){
+                    $('.sub_ad_left-button,.sub_ad_right-button').css('opacity','1')
+                },function(){
+                    $('.sub_ad_left-button,.sub_ad_right-button').css('opacity','0')
+                })
+
+                $('.sub_ad_right-button,.sub_ad_left-button').hover(function(){
+                    $('.sub_ad_right-button,.sub_ad_left-button').css('opacity','1')
+                },function(){
+                    $('.sub_ad_right-button,.sub_ad_left-button').css('opacity','0')
+                })
+
+                //클릭시 이동
+                $('.sub_ad_left-button>p').click(function(){
+                    if(currentPage2>0){
+                        //왼쪽으로 이동
+                        currentPage2 = currentPage2 -1;
+                        changePage2();
+                    }
+                });
+                $('.sub_ad_right-button>p').click(function(){
+                    if(currentPage2<2){
+                        //오른쪽으로 이동
+                        currentPage2 = currentPage2 +1;
+                        changePage2();
+                    } 
+                });
+
+                
+
+                //article_4 속성
+                //이미지 opacity 조절 및 글씨 색상 전환
+                $('#article_4 td').hover(function(){
+                    $(this).find('img').css('opacity','1')
+                    $(this).find('p').css('color','#3bafb0')
+                },function(){
+                    $(this).find('img').css('opacity','0.8')
+                    $(this).find('p').css('color','white')
+                })
+                //article_5 속성
+                //글씨 색 바꾸기
+                $('#article_5 ul >li').hover(function(){
+                    $(this).find('p').css('color','#3bafb0')
+                },function(){
+                    $(this).find('p').css('color','black')
+                })
+                //왼쪽 footer 속성
+                $('.first_footer>ul>li').hover(function(){
+                    $(this).css('text-decoration','underline white')
+                },function(){
+                    $(this).css('text-decoration','none')
+                })
+            });
+
+            </script>
+        <style>
+            *{
+                margin:0 auto;
+                padding:0 auto;
+            }
+            body{
+                margin-bottom:-300px;
+            }
+            a{
+                text-decoration:none;
+            }
+            /*전체 wrapper크기*/
+            .wrapper{
+                width:70%;
+                margin-left:15%;
+                
+            }
+            /*헤더*/
+            /*최상단헤더*/
+            #top_header{
+                background-color:#222222;
+                height:40px;
+            }
+            #top_header button{
+                width:50px;
+                height:25px;
+                margin-top:7px;
+                background:white;
+                border:none;
+                border-radius:12.5px;
+                font-size:11px;
+                font-style:bold;
+                cursor:pointer;
+            }
+            #top_header a{
+                color:lightgray;
+                margin-left:10px;
+                font-size:11px;
+            }
+            #top_header .top_header_right{
+                margin-left:80px;
+            }
+            #top_header>.wrapper>a>img{
+                position:relative;
+                top:7px;
+            }
+            .lang_turn{
+                position:relative;
+                top:-15px;
+                display:inline-block;
+                height:40px;
+                background-color:black;
+                width:80px;
+                text-align:center;
+            }
+            .lang_turn>p{
+                color:lightgray;
+                position:relative;
+                top:15px;
+                font-size:11px;
+            }
+            /*로고 및 네비게이션파트*/
+            #header .logo{
+                position:relative;
+                top:20px;
+                cursor:pointer;
+            }
+            #header>.wrapper>div{
+                display:inline-block;
+                margin-left:25px;
+                height:90px;
+                font-size:18px;
+                font-style:bold;
+                color:black
+            }
+            #header>.wrapper>div>a{
+                color:black
+            }
+            #header .nav_menu_1{
+                margin-left:120px;
+            }
+            #header .nav_menu_7{
+                position:relative;
+                top:10px;
+                background-color:#222222;
+                width:60px;
+                height:39px;
+                border-radius:20px;
+                padding-left:18px;
+                padding-top:1px;
+            }
+            .nav_menu_7 .img2{
+                display:none;
+            }
+            hr{
+                position:absolute;
+                top:130px;
+                width:100%;
+                border:0.3px solid rgb(231, 231, 231);
+                z-index:3;
+            }
+            /*article1*/
+            #article_1{
+                height:380px;      
+            }
+            [data-role="slider"]{
+                position:relative;
+                overflow:hidden;
+                width: 1590px;
+                height:380px;
+                top:-30px;
+            }
+            .main_ad_container{
+                position:absolute;
+                width:4770px;
+                overflow:hidden
+            }
+            .main_ad_item{
+                width:1590px;
+                height:380px;
+                float:left;
+            }
+            .main_ad_item>img{
+                width:1590px;
+                height:380px;
+                float:left;
+            }
+             
+            .main_ad_left-button{
+                position:absolute;
+                width:100px;
+                height:100px;
+                background-color: rgba( 255, 255, 255, 0 );
+                top:280px;
+                left:30px;
+                font-size:100px;
+                border:none;
+                color:#18aa9b;
+                opacity:0;
+            }
+
+            .main_ad_right-button{
+                position:absolute;
+                width:100px;
+                height:100px;
+                background-color: rgba( 255, 255, 255, 0);
+                top:280px;
+                right:30px;
+                font-size:100px;
+                border:none;
+                color:#18aa9b;
+                opacity:0;
+            }
+
+            .main_ad_nav_1{
+                position:absolute;
+                width:14px;
+                height:14px;
+                border-radius:7px;
+                border:none;
+                background-color:#18aa9b;
+                top:480px;
+                left:720px;
+            }
+            .main_ad_nav_2{
+                position:absolute;
+                width:14px;
+                height:14px;
+                border-radius:7px;
+                border:none;
+                background-color:black;
+                top:480px;
+                left:770px;
+            }
+            .main_ad_nav_3{
+                position:absolute;
+                width:14px;
+                height:14px;
+                border-radius:7px;
+                border:none;
+                background-color:rgb(0, 0, 0);
+                top:480px;
+                left:820px;   
+            }
+            /*article_2*/
+            #article_2{
+                height:150px;
+                position:relative;
+                top:30px;
+                margin-left:0px;
+            }
+            #article_2 div{
+                height:100%;
+                margin-left:8%;
+                display:inline-block;
+                font-size:14px;
+                font-weight:bold;
+                cursor:pointer
+            }
+            #article_2 img{
+                opacity:0.6;
+            }
+            #article_2 .move_right{
+                position:relative;
+                left:13px;
+            }
+            #article_2 p{
+                margin-top:8px;
+            }
+            #article_2 > .article_2_1box{
+                margin-left:8%;
+            }
+            .article2-article3{
+                width:100%;
+                color:lightgray;
+                margin-top:-370px;
+            }
+            /*article3*/
+            #article_3{
+                position:relative;
+                top:50px;
+                height:380px;
+            }
+            #article_3 h3{
+                display:inline-block;
+                margin-right:50px;
+                margin-bottom:50px;
+                color:black;
+            }
+            #article_3>.article_3_title{
+                text-decoration:underline #18aa9b 3px;
+            }
+            #article_3>.article_3_title2{
+                color:gray;
+            }
+            [data-role="slider2"]{
+                position:relative;
+                overflow:hidden;
+                width:1113px;
+                height:380px;
+            }
+            .sub_ad_container{
+                position:absolute;
+                width:3339px;
+                height:380px;
+                overflow:hidden;
+            }
+            .sub_ad_item{
+                width:1113px;
+                height:380px;
+                float:left;
+            }
+            .sub_ad_item>img{
+                float:left;
+            }
+            
+
+            
+            .sub_ad_left-button{
+                position:absolute;
+                width:80px;
+                height:80px;
+                background-color:black;
+                top:100px;
+                left:-250px;
+                font-size:30px;
+                border:none;
+                color:white;
+                border-radius:0 40px 40px 0;
+            }
+
+            .sub_ad_right-button{
+                position:absolute;
+                width:80px;
+                height:80px;
+                background-color:black;
+                top:100px;
+                right:-250px;
+                font-size:30px;
+                border:none;
+                color:white;
+                border-radius:40px 0 0 40px;
+            }
+
+            
+            
+            /*article 4*/
+            #article_4{
+                position:relative;
+                top:60px;
+            }
+            #article_4 td{
+                padding-right:10px;
+                padding-left:10px;
+                cursor:pointer;
+            }
+            #article_4 td>img{
+                position:relative;
+                width:250px;
+                height:250px;
+                opacity:0.8;
+            }
+            #article_4 .news_p{
+                position:relative;
+                top:-50px;
+                color:white;
+                font-weight: bold;
+                font-size:13px;
+                margin-left:15px;
+            }
+            #article_4 .move_top>img{
+                top:-10px;
+            }
+            /*article 5*/
+            #article_5{
+                position:relative;
+                top:100px;
+            }
+            #article_5 h3{
+                text-decoration: underline #18aa9b 3px;
+                margin-bottom:10px;
+            }
+            #article_5 ul{
+                list-style:none;
+                margin-left:-30px;
+            }
+            #article_5 ul >li{
+                margin-top:20px;
+                display:inline-block;
+                width:30%;
+                height:100px;
+                padding-left:20px;
+                border-right:#18aa9b solid 0.1px;
+                cursor:pointer;
+            }
+            
+            .article_5_info{
+                font-size:15px;
+                color:#222222;
+            }
+            .article_5_date{
+                font-size:11px;
+                color:gray;
+            }
+            .move_bottom{
+                position:relative;
+                top:20px;
+            }
+            /*footer*/
+            #footer{
+                position:relative;
+                top:150px;
+                height:250px;
+                background-color:#454545;
+                border-top:#18aa9b 10px solid;
+                margin:0 auto;
+            }
+
+            #footer .footer_layout{
+                list-style:none;
+            }
+            #footer .footer_layout>li{
+                display:inline-block;
+                height:170px;
+            }
+            #footer .footer_layout>li:first-child{
+                width:30%;
+                margin-left:-60px;
+            }
+            #footer .footer_layout>li:nth-child(2){
+                width:40%;
+            }
+            #footer .footer_layout>li:nth-child(3){
+                width:30%;
+            }
+            .footer_layout ul{
+                list-style:none;
+            }
+            .footer_layout .first_footer{
+                border-right:1px solid black
+            }
+            .footer_layout li{
+                margin-bottom:10px;
+            }
+            .footer_layout .second_footer>img{
+                position:relative;
+                top:-30px;
+                left:100px;
+            }
+            .footer_layout .second_footer>div{
+                position:relative;
+                left:25px;
+                top:-10px;
+                width:350px;
+                height:50px;
+                background-color:#f5f5f5;
+            }
+            .footer_layout .second_footer>div>input{
+                position:relative;
+                top:-5px;
+                width:85%;
+                height:90%;
+                background-color:#f5f5f5;
+                border:none;
+                
+            }
+            .footer_layout .second_footer>div>img{
+                position:relative;
+                right:-10px;
+                border:none;
+                top:5px;
+                cursor:pointer;
+            }
+            .footer_layout .third_footer{
+                position:relative;
+                top:20px;
+                left:50px;
+                border-left:1px solid black;
+            }
+            .footer_layout ul>li{
+                color:white;
+                font-size:11px;
+            }
+            .first_footer{
+                cursor:pointer;
+            }
+            .last_footer{
+                background-color:rgb(53, 53, 53);
+                height:50px;
+                color:white;
+                margin-top:-50px;
+                text-align:center;
+                font-size:12px;
+                line-height:50px;
+            }
+        </style>
+    </head>
+    <body>
+        <!--상단~ 로고 파트-->
+        <header>
+            <!--최상단헤더-->
+            <div id="top_header">
+                <div class='wrapper'>
+
+                <button>HOME</button><a href="#">한빛미디어</a><a href="#">한빛미아카데이</a><a href="#">한빛비즈</a><a href="#">한빛라이프</a>
+                <a href="#">한빛에듀</a><a href="#">리얼타임</a href="#"><a href="#">한빛정보교과서</a><a href="#">한빛대관서비스</a>
+
+                <a href="#" class="top_header_right"><img src="mypage.png">마이한빛</a> <a href="#"><img src="membership.png">회원가입</a> 
+                <a href="#"><img src="login.png">로그인</a> <a href="#"><img src="shopping.png">장바구니</a> <a href="#"><div class="lang_turn"><p>ENGLISH ></p></div></a>
+                
+                </div>
+            </div>
+            <!--로고/nav-->
+            
+            <div id="header">
+                <div class='wrapper'>
+                <a href="한빛출판.html"><img class="logo" src="logo.png"></a> <div class="nav_menu_1"><a href="한빛출판_BRAND.html">BRAND</a></div> <div class="nav_menu_2"><a href="한빛출판_CHANNEL.html">CHANNEL.H</a></div>
+                <div class="nav_menu_3"><a href="한빛출판_STORE.html">STORE</a></div> <div class="nav_menu_4"><a href="한빛출판_SUPPORT.html">SUPPORT</a></div>
+                <div class="nav_menu_5"><a href="한빛출판_EVENT.html">EVENT</a></div> <div class="nav_menu_6"><a href="#">RIGHTS</a></div>
+                <div class="nav_menu_7"><a href="#"><img class="img1" src="seasrch.png"></a><a href="#"><img class="img2" src="search_hover.png"></a></div>
+            </div>
+        </div>
+        </header>
+        <!--전체 article-->
+        <section>
+           <article id="article_1">
+                <div data-role="slider">
+                    <div class="main_ad_container">
+                        <div class="main_ad_item">
+                            <img src="main_ad_1.png">
+                        </div>
+                        <div class="main_ad_item">
+                            <img src="main_ad_2.png">
+                        </div>
+                        <div class="main_ad_item">
+                            <img src="main_ad_3.png">
+                        </div>
+                    </div>
+                </div>
+                <button class="main_ad_left-button"><p> < </p></button><button class="main_ad_right-button"><p> > </p></button>
+                <button class="main_ad_nav_1"></button><button class="main_ad_nav_2"></button><button class="main_ad_nav_3"></button>
+            </article>
+            <div class='wrapper'>
+            <!--중간nav배너--> 
+            <article id="article_2">
+                <div class="article_2_1box"><img src="midnav_1.png" class="move_right"><p>기획/원고모집</p></div> <div><img src="midnav_2.png"><p>교수전용</p></div> 
+                <div><img src="midnav_3.png"><p>대관서비스</p></div> <div><img src="midnav_4.png" class="move_right"><p>부록/예제소스</p></div> 
+                <div><img src="midnav_5.png" class="move_right"><p>자주묻는질문</p></div> <div><img src="midnav_6.png" class="move_right"><p>FOREIGN RIGHTS</p></div>
+            </article>
+            <!--책 소개 slide-->
+            <article id="article_3">
+                <h3 class="article_3_title">새로나온책</h3><h3 class="article_3_title2">베스트셀러</h3>
+                <div data-role="slider2">
+                    <div class="sub_ad_container">
+                        <div class="sub_ad_item">
+                            <img src="book_1.png"><img src="book_2.png"><img src="book_3.png"><img src="book_4.png"><img src="book_5.png">
+                        </div>
+                        <div class="sub_ad_item">
+                            <img src="book_6.png"><img src="book_7.png"><img src="book_8.png"><img src="book_9.png"><img src="book_10.png">
+                        </div>
+                        <div class="sub_ad_item">
+                            <img src="book_3.png"><img src="book_8.png"><img src="book_1.png"><img src="book_5.png"><img src="book_9.png">
+                        </div>
+                    </div>
+                </div>
+                <button class="sub_ad_left-button"><</button><button class="sub_ad_right-button">></button>
+            </article>
+            </div>
+            <hr class="article2-article3">
+            <div class='wrapper'>
+            <!--뉴스리스트-->
+            <article id="article_4">
+                <div>
+                <h3>한빛콘텐츠와 함께!!</h3>
+                <img class="news_sns1"><img class="news_sns1_hover">
+                <img class="news_sns2"><img class="news_sns2_hover">
+                <img class="news_sns3"><img class="news_sns3_hover">
+                <img class="news_sns4"><img class="news_sns4_hover">
+                <img class="news_sns5"><img class="news_sns5_hover">
+                <img class="news_sns6"><img class="news_sns6_hover">
+                </div>
+                <table>
+                    <tr>
+                        <td>
+                            <img src="news_1.png"><p class="news_p">인공지능, 머신러닝은 아는데,<br>
+                                심층 강화학습은 무엇?</p>
+                        </td>
+                        <td>
+                            <img src="news_2.png"><p class="news_p">유튜버의 고민 2편<br>
+                                어떻게 구독자는 만드는가?</p>
+                        </td>
+                        <td>
+                            <img src="news_3.png"><p class="news_p">인공지능 프로그램의 자동화...<br>
+                                대체 파이썬이 뭐길래</p>
+                        </td>
+                        <td class="move_top">
+                            <img src="news_4.png"><p class="news_p">전자책에 대한 에디터들의 생각</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="news_3.png"><p class="news_p">머신러닝 어떻게 할까?<br>
+                                성공하는 머신러닝 4단계</p>
+                        </td>
+                        <td class="move_top">
+                            <img src="news_1.png"><p class="news_p">한빛의 미적감각 어떤가요???</p>
+                        </td>
+                        <td>
+                            <img src="news_4.png"><p class="news_p">개발자의 고민 3편,<br>
+                                내가 만든 코드 쓰이지 않을때</p>
+                        </td>
+                        <td class="move_top">
+                            <img src="news_2.png"><p class="news_p">AI제품관리자들에게 필요한 실무기술</p>
+                        </td>
+                    </tr>
+                </table>
+            </article>
+            <!--공지사항-->
+            <article id="article_5">
+                <h3>공지사항</h3>
+                <ul>
+                    <li><p class="article_5_info">추석연휴로 인한 배송안내</p><p class="article_5_date">2019-08-30</p></li>
+                    <li class="move_bottom"><p class="article_5_info">한빛출판과 함께나갈<br>단행본 에디터를 모십니다. </p><p class="article_5_date">2019-08-30</p></li>
+                    <li><p class="article_5_info">물류센터하계휴가로 인한 배송 안내</p><p class="article_5_date">2019-08-30</p></li>
+                </ul>
+            </article>
+            </div>
+        </section>
+        <footer id="footer">
+            <div class='wrapper'>
+            <ul class="footer_layout">
+                <li class="first_footer">
+                    <ul>
+                        <li>회사소개(KOR/ENG)/회사약도</li>
+                        <li>기획 및 원고모집</li>
+                        <li>채용/입사지원</li>
+                        <li>FOREIGN RIGHTS</li>
+                        <li>이용약관/개인정보처리방침</li>
+                        <li>사이트맵</li>
+                    </ul>
+                </li>
+                <li class="second_footer">
+                    <img src="search_bar.png">
+                    <div>
+                        <input><img src="search_lense.png">
+                    </div>
+                </li>
+                <li class="third_footer">
+                    <ul>
+                        <li>한빛미디어/한빛아카데미/한빛비즈</li>
+                        <li>(03784)서울 연희동 성산대로 78</li>
+                        <li>EMAIL:support@hanbit.co.kr</li>
+                        <li>대표이사:김태헌</li>
+                        <li>사업자등록번호 : 220-51-82</li>
+                        <li>통신판매업신고:2017 서울서대문 2019</li>
+                        <li>호스팅제공자:누리호스팅</li>
+                    </ul>
+                </li>
+            </ul>
+            
+        </div>
+        <div class="last_footer">©1993-2021 Hanbit Publishing Network, Inc. All rights reserved.</div>
+        </footer>
+    
+    </body>
+</html>

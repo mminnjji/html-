@@ -1,0 +1,504 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script>
+            $(document).ready(function(){
+
+                //최상단 글씨 색 변화
+                $('#top_header a').hover(function(){
+                    $(this).css('color','white')
+                },function(){
+                    $(this).css('color','lightgray')
+                })
+                $('.lang_turn p').hover(function(){
+                    $(this).css('color','white')
+                },function(){
+                    $(this).css('color','lightgray')
+                })
+
+                //네비게이션 글씨 색 변화
+                $('#header a').hover(function(){
+                    $(this).css('color','#18aa9b')
+                },function(){
+                    $(this).css('color','black')
+                })
+                $('.nav_menu_7').hover(function(){
+                    $(this).css('background-color','#3bafb0')
+                    $('.nav_menu_7 .img1').css('display','none')
+                    $('.nav_menu_7 .img2').css('display','inline-block')
+                },function(){
+                    $(this).css('background-color','#222222')
+                    $('.nav_menu_7 .img1').css('display','inline-block')
+                    $('.nav_menu_7 .img2').css('display','none')
+                })
+                //스크롤시 메인 네비게이션 상단 fix
+                var scrollheight=$(window).scrollTop()
+                    if(scrollheight==0){
+                        $('#header .logo').css({
+                            position:'relative',
+                            top:'20px',
+                            cursor:'pointer',
+                        })
+                        $('#header>.wrapper>div').css({
+                            display:'inline-block',
+                            marginLeft:'25px',
+                            height:'90px',
+                            fontSize:'18px',
+                            fontWeight:'bold',
+                            color:'black'
+                        })
+                        $('#header>.wrapper>div>a').css({
+                            color:'black'
+                        })
+                        $('#header .nav_menu_1').css({
+                            marginLeft:'120px'
+                        })
+                        $('#header .nav_menu_7').css({
+                            position:'relative',
+                            top:'10px',
+                            backgroundColor:'#222222',
+                            width:'60px',
+                            height:'39px',
+                            borderRadius:'20px',
+                            paddingLeft:'18px',
+                            paddingTop:'1px'
+                        })
+                        $('.nav_menu_7 .img2').css({
+                            display:'none'
+                        })
+                    }
+                $(window).scroll(function(){
+                    $('#header').css({
+                        backgroundColor:"white",
+                        opacity:"0.8",
+                        position:"fixed",
+                        top:'0px',
+                        height:'50px',
+                        zIndex:'4',
+                        width:'1590px',
+                        borderBottom:'0.3px solid rgb(231,231,231)'
+                    })
+                    $('#header .logo').css({
+                        width:'135',
+                        height:'26',
+                        top:'10px'
+                    })
+                    $('#header>.wrapper>div').css({
+                        height:'40px',
+                        fontSize:'15px',
+                        marginTop:'-10px'
+                    })
+                    $('.nav_menu_1').css({
+                        marginLeft:'300px'
+                    })
+                    $('.nav_menu_7').css({
+                        top:'13px'
+                    })
+                    var scrollheight=$(window).scrollTop()
+                    if(scrollheight==0){
+                        $('#header').css({
+                            backgroundColor:"white",
+                            opacity:"1",
+                            position:"relative",
+                            top:'0px',
+                            zIndex:'4',
+                            width:'1590px',
+                            border:'none'
+                    })
+                        $('#header .logo').css({
+                            position:'relative',
+                            top:'20px',
+                            width:'270',
+                            height:'52',
+                            cursor:'pointer',
+                        })
+                        $('#header>.wrapper>div').css({
+                            display:'inline-block',
+                            marginLeft:'25px',
+                            height:'90px',
+                            fontSize:'18px',
+                            fontWeight:'bold',
+                            color:'black'
+                        })
+                        $('#header>.wrapper>div>a').css({
+                            color:'black'
+                        })
+                        $('#header .nav_menu_1').css({
+                            marginLeft:'120px'
+                        })
+                        $('#header .nav_menu_7').css({
+                            position:'relative',
+                            top:'10px',
+                            backgroundColor:'#222222',
+                            width:'60px',
+                            height:'39px',
+                            borderRadius:'20px',
+                            paddingLeft:'18px',
+                            paddingTop:'1px'
+                        })
+                        $('.nav_menu_7 .img2').css({
+                            display:'none'
+                        })
+                        $('section').css({
+                            position:'relative',
+                            top:'70px'
+                        })
+                        $('#footer').css({
+                            position:'relative',
+                            top:'px'
+                        })
+                        
+                    }
+                })
+                //이벤트 hover시 색상 변화
+                $('.event1').hover(function(){
+                    $(this).find('p').css('text-decoration','underline black')
+                    $(this).find('img').css('opacity','0.8')
+                },function(){
+                    $(this).find('p').css('text-decoration','none')
+                    $(this).find('img').css('opacity','1')
+                })
+                $('.event2').hover(function(){
+                    $(this).find('p').css('text-decoration','underline black')
+                    $(this).find('img').css('opacity','0.8')
+                },function(){
+                    $(this).find('p').css('text-decoration','none')
+                    $(this).find('img').css('opacity','1')
+                })
+
+                //왼쪽 footer 속성
+                $('.first_footer>ul>li').hover(function(){
+                    $(this).css('text-decoration','underline white')
+                },function(){
+                    $(this).css('text-decoration','none')
+                })
+            
+
+            })
+        </script>
+        <style>
+            *{
+                margin:0 auto;
+                padding:0 auto;
+            }
+            body{
+                margin-bottom:-300px;
+            }
+            a{
+                text-decoration:none;
+            }
+            /*전체 wrapper크기*/
+            .wrapper{
+                width:70%;
+                margin-left:15%;
+                
+            }
+            /*헤더*/
+            /*최상단헤더*/
+            #top_header{
+                background-color:#222222;
+                height:40px;
+            }
+            #top_header button{
+                width:50px;
+                height:25px;
+                margin-top:7px;
+                background:white;
+                border:none;
+                border-radius:12.5px;
+                font-size:11px;
+                font-style:bold;
+                cursor:pointer;
+            }
+            #top_header a{
+                color:lightgray;
+                margin-left:10px;
+                font-size:11px;
+            }
+            #top_header .top_header_right{
+                margin-left:80px;
+            }
+            #top_header>.wrapper>a>img{
+                position:relative;
+                top:7px;
+            }
+            .lang_turn{
+                position:relative;
+                top:-15px;
+                display:inline-block;
+                height:40px;
+                background-color:black;
+                width:80px;
+                text-align:center;
+            }
+            .lang_turn>p{
+                color:lightgray;
+                position:relative;
+                top:15px;
+                font-size:11px;
+            }
+            
+            /*로고 및 네비게이션파트*/
+            #header .logo{
+                position:relative;
+                top:20px;
+                cursor:pointer;
+            }
+            #header>.wrapper>div{
+                display:inline-block;
+                margin-left:25px;
+                height:90px;
+                font-size:18px;
+                font-style:bold;
+                color:black
+            }
+            #header>.wrapper>div>a{
+                color:black
+            }
+            #header .nav_menu_1{
+                margin-left:120px;
+            }
+            #header .nav_menu_7{
+                position:relative;
+                top:10px;
+                background-color:#222222;
+                width:60px;
+                height:39px;
+                border-radius:20px;
+                padding-left:18px;
+                padding-top:1px;
+            }
+            .nav_menu_7 .img2{
+                display:none;
+            }
+            hr{
+                position:absolute;
+                top:130px;
+                width:100%;
+                border:0.3px solid rgb(231, 231, 231);
+                z-index:3;
+            }
+            /*article*/
+
+            .article_top>p{
+                display:inline-block;
+                position:relative;
+                left:20px;
+                top:0px;
+                margin-left:30px;
+                font-size:13px;
+                color:rgb(63, 63, 63);
+                cursor:pointer;
+            }
+            #article>h1{
+                margin-left:40px;
+                margin-bottom:30px;
+                margin-top:80px;
+                font-size: 30px;
+            }
+            /*이벤트 박스 속성*/
+            .event1{
+                width:500px;
+                height:500px;
+                position:relative;
+                top:0px;
+                left:-270px;
+                z-index:3;
+                cursor:pointer;
+            }
+            .event2{
+                width:500px;
+                height:500px;
+                position:relative;
+                top:-500px;
+                left:100px;
+                z-index:3;
+                cursor:pointer;
+            }
+
+            .event1 p{
+                margin-left:3px;
+                font-size:13px;
+                margin-top:10px;
+            }
+
+            .event2 p{
+                margin-left:3px;
+                font-size:13px;
+                margin-top:10px;
+            }
+           
+            
+
+            /*footer*/
+            #footer{
+                position:relative;
+                top:150px;
+                height:250px;
+                background-color:#454545;
+                border-top:#18aa9b 10px solid;
+                margin:0 auto;
+            }
+
+            #footer .footer_layout{
+                list-style:none;
+            }
+            #footer .footer_layout>li{
+                display:inline-block;
+                height:170px;
+            }
+            #footer .footer_layout>li:first-child{
+                width:30%;
+                margin-left:-60px;
+            }
+            #footer .footer_layout>li:nth-child(2){
+                width:40%;
+            }
+            #footer .footer_layout>li:nth-child(3){
+                width:30%;
+            }
+            .footer_layout ul{
+                list-style:none;
+            }
+            .footer_layout .first_footer{
+                border-right:1px solid black
+            }
+            .footer_layout li{
+                margin-bottom:10px;
+            }
+            .footer_layout .second_footer>img{
+                position:relative;
+                top:-30px;
+                left:100px;
+            }
+            .footer_layout .second_footer>div{
+                position:relative;
+                left:25px;
+                top:-10px;
+                width:350px;
+                height:50px;
+                background-color:#f5f5f5;
+            }
+            .footer_layout .second_footer>div>input{
+                position:relative;
+                top:-5px;
+                width:85%;
+                height:90%;
+                background-color:#f5f5f5;
+                border:none;
+                
+            }
+            .footer_layout .second_footer>div>img{
+                position:relative;
+                right:-10px;
+                border:none;
+                top:5px;
+                cursor:pointer;
+            }
+            .footer_layout .third_footer{
+                position:relative;
+                top:20px;
+                left:50px;
+                border-left:1px solid black;
+            }
+            .footer_layout ul>li{
+                color:white;
+                font-size:11px;
+            }
+            .first_footer{
+                cursor:pointer;
+            }
+            .last_footer{
+                background-color:rgb(53, 53, 53);
+                height:50px;
+                color:white;
+                margin-top:-50px;
+                text-align:center;
+                font-size:12px;
+                line-height:50px;
+            }
+        </style>
+    </head>
+    <body>
+        <!--상단~ 로고 파트-->
+        <header>
+            <!--최상단헤더-->
+            <div id="top_header">
+                <div class='wrapper'>
+
+                <button>HOME</button><a href="#">한빛미디어</a><a href="#">한빛미아카데이</a><a href="#">한빛비즈</a><a href="#">한빛라이프</a>
+                <a href="#">한빛에듀</a><a href="#">리얼타임</a href="#"><a href="#">한빛정보교과서</a><a href="#">한빛대관서비스</a>
+
+                <a href="#" class="top_header_right"><img src="mypage.png">마이한빛</a> <a href="#"><img src="membership.png">회원가입</a> 
+                <a href="#"><img src="login.png">로그인</a> <a href="#"><img src="shopping.png">장바구니</a> <a href="#"><div class="lang_turn"><p>ENGLISH ></p></div></a>
+                
+                </div>
+            </div>
+            <!--로고/nav-->
+            
+            <div id="header">
+                <div class='wrapper'>
+                <a href="한빛출판.html"><img class="logo" src="logo.png"></a> <div class="nav_menu_1"><a href="한빛출판_BRAND.html">BRAND</a></div> <div class="nav_menu_2"><a href="한빛출판_CHANNEL.html">CHANNEL.H</a></div>
+                <div class="nav_menu_3"><a href="#">STORE</a></div> <div class="nav_menu_4"><a href="한빛출판_SUPPORT.html">SUPPORT</a></div>
+                <div class="nav_menu_5"><a href="한빛출판_EVENT.html">EVENT</a></div> <div class="nav_menu_6"><a href="#">RIGHTS</a></div>
+                <div class="nav_menu_7"><a href="#"><img class="img1" src="seasrch.png"></a><a href="#"><img class="img2" src="search_hover.png"></a></div>
+            </div>
+        </div>
+        </div>
+        </header>
+        <hr>
+        <!--전체 article-->
+        <section>
+            <div class='wrapper'>
+            <article id="article">
+                <div class="article_top">
+                    <p>진행중인 이벤트</p><p>|</p><p>지난 이벤트</p><p>|</p><p>당첨자보기</p>
+                </div>
+                <h1>진행중인 이벤트</h1>
+                <div class="event1">
+                    <img src="EVENT_1.jpg"><p class="event1_info">[좋아요&댓글이벤트]"보았다면 흔적을<br>남기는 거야...!"<br>2021-11-08 ~ 2021-11-21</p>
+                </div>
+                <div class="event2">
+                    <img src="EVENT_2.jpg"><p>도서 구매 인증을 하시면 적립금을 드립니다.<br>2021-01-01 ~ 2021-12-31</p>
+                </div>
+            </article>
+            </div>
+        </section>
+        <footer id="footer">
+            <div class='wrapper'>
+            <ul class="footer_layout">
+                <li class="first_footer">
+                    <ul>
+                        <li>회사소개(KOR/ENG)/회사약도</li>
+                        <li>기획 및 원고모집</li>
+                        <li>채용/입사지원</li>
+                        <li>FOREIGN RIGHTS</li>
+                        <li>이용약관/개인정보처리방침</li>
+                        <li>사이트맵</li>
+                    </ul>
+                </li>
+                <li class="second_footer">
+                    <img src="search_bar.png">
+                    <div>
+                        <input><img src="search_lense.png">
+                    </div>
+                </li>
+                <li class="third_footer">
+                    <ul>
+                        <li>한빛미디어/한빛아카데미/한빛비즈</li>
+                        <li>(03784)서울 연희동 성산대로 78</li>
+                        <li>EMAIL:support@hanbit.co.kr</li>
+                        <li>대표이사:김태헌</li>
+                        <li>사업자등록번호 : 220-51-82</li>
+                        <li>통신판매업신고:2017 서울서대문 2019</li>
+                        <li>호스팅제공자:누리호스팅</li>
+                    </ul>
+                </li>
+            </ul>
+            
+        </div>
+        <div class="last_footer">©1993-2021 Hanbit Publishing Network, Inc. All rights reserved.</div>
+        </footer>
+    
+    </body>
+</html>

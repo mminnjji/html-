@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #wrap{
+                width:90%;
+                /*960px*/
+                margin:0 auto;
+               border:4px black solid;
+            }
+            #wrap div{
+                width:49%;
+                display:inline-block;
+            }
+            img,video{
+                width:100%;
+                max-width:100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div>
+                <video controls>
+                    <source src="video.mp4" type ='video/mp4'></source>
+                    <source src="video.ogv" type ='video/ogg'></source>
+                    <source src="video.webm" type ='video/webm'></source>
+                </video>
+            </div>
+            <div><img src="img_01.jpg"></div>
+        </div>
+    </body>
+</html>

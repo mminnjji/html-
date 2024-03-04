@@ -1,0 +1,1471 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script>
+            $(document).ready(function(){
+                //상위 프로필 항목 슬라이드
+                $(".top_asidebanner_nickname+img").on('mouseenter',function(){
+                    $(".top_asidebanner_nickname_list").animate({
+                        height:"60px",
+                        opacity:"1"
+                    },100)
+                })
+                $(".wrapper").on('click',function(){
+                    $(".top_asidebanner_nickname_list").animate({
+                        height:"0px",
+                        opacity:"0"
+                    },100)
+                })
+
+                
+    
+                var width = 700
+                var height= 150
+                var count= 3
+                
+                //스타일을 적용합니다.
+                $('[data-role="slider"]').css({
+                    position:'relative',
+                    overflow:'hidden',
+                    width: width,
+                    height: height
+                });
+                $('.main_ad_container').css({
+                    position:'absolute',
+                    width:width*count,
+                    overflow:'hidden'
+                });
+                $('.main_ad_item').css({
+                    width:width,
+                    height:height,
+                    float:'left'
+                });;
+                $('.main_ad_item>img').css({
+                    width:'100%',
+                    height:'100%',
+                    paddingTop:'10px'
+                })
+             
+                    //변수를 선언합니다. 
+                var currentPage = 0;
+                var changePage = function(){
+                    $('[data-role="slider"]>.main_ad_container').animate({
+                        left:-currentPage*width
+                    },500);
+                };
+
+                $('#left-button').click(function(){
+                    if(currentPage>0){
+                        //오른쪽으로 이동
+                        currentPage = currentPage -1;
+                        changePage();
+                        $('#right-button').css('background-color','#02a0ff')
+                        if(currentPage==0){
+                            $('#left-button').css('background-color','lightgray')
+                        }
+
+                    }
+                });
+                $('#right-button').click(function(){
+                    if(currentPage<2){
+                        //오른쪽으로 이동
+                        currentPage = currentPage +1;
+                        changePage();
+                        $('#left-button').css('background-color','#02a0ff')
+                        if(currentPage==2){
+                            $('#right-button').css('background-color','lightgray')
+                        }
+
+                    }  
+                   
+                });
+                $('.person_info,.person_recommendlist').hover(function(){
+                    $('.person_recommendlist').stop().animate({
+                        height:'250px',
+                        display:'visible'
+                },300);
+                },function(){
+                    $('.person_recommendlist').stop().animate({
+                        height:'0px',
+                        display:'none'
+                    },300);
+                       });
+                //커뮤니티 창 메뉴 색상변경
+                $(".subnewsbar>a").click( function(){
+                    
+                     $(".subnewsbar>a").css('color','black')
+                     $(this).css('color','#02a0ff')
+                    
+               }
+                  )
+        
+                 //커뮤니티 리스트 변경
+               $('#article_community ~ a').click(function () {
+            
+                     var tab= $(this).attr('data');
+
+                 $('.tab').removeClass('current');
+
+                $(this).addClass('current');
+                  $("#" + tab).addClass('current');
+                 })
+                $('#firstmenu').click( function(){
+                    $(document).scrollTop('1050')
+                })
+                $('#secondmenu').click( function(){
+                    $(document).scrollTop('1830')
+                })
+                $('#thirdmenu').click( function(){
+                    $(document).scrollTop('2570')
+                })
+                $('#fourthmenu').click( function(){
+                    $(document).scrollTop('3700')
+                })
+                $('.category1 td').click(function(){
+                    $('.category1 td').css('background','white')
+                    $(this).css('background','lightgray');
+                    
+                    var tab = $(this).attr('data');
+                    $('.today-article1').removeClass('current2');
+
+                    $("#"+ tab).addClass('current2')
+                })
+                $('.category2 td').click(function(){
+                    $('.category2 td').css('background','white')
+                    $(this).css('background','lightgray');
+                    
+                    var tab = $(this).attr('data');
+                    $('.today-article2').removeClass('current2');
+
+                    $("#"+ tab).addClass('current2')
+                })
+                $('.category3 td').click(function(){
+                    $('.category3 td').css('background','white')
+                    $(this).css('background','lightgray');
+                    
+                    var tab = $(this).attr('data');
+                    $('.today-article3').removeClass('current2');
+
+                    $("#"+ tab).addClass('current2')
+                })
+                $('.category4 td').click(function(){
+                    $('.category4 td').css('background','white')
+                    $(this).css('background','lightgray');
+                    
+                    var tab = $(this).attr('data');
+                    $('.today-article4').removeClass('current2');
+
+                    $("#"+ tab).addClass('current2')
+                })
+                $('#sixthmenu,.docusearch').hover(function(){
+                    $('.docusearch').stop().animate({
+                        height:'100px',
+                        display:'visible'
+               },300)},function(){
+                    $('.docusearch').stop().animate({
+                        height:'0px',
+                        display:'none'
+               },300)})
+               $('#fifthmenu,.calender').hover(function(){
+                    $('.calender').stop().animate({
+                        height:'380px',
+                        display:'visible'
+               },300)
+                
+            },function(){
+                    $('.calender').stop().animate({
+                        height:'0px',
+                        display:'none'
+               },300)})
+            $('#info1,.infoinfo').hover(function(){
+                $('.infoinfo').stop().animate({
+                        height:'100px',
+                        display:'visible'
+               },300)},function(){
+                    $('.infoinfo').stop().animate({
+                        height:'0px',
+                        display:'none'
+               },300)
+            })
+            
+        });
+        </script>
+        <style>
+            /*전체 넓이 지정*/
+            .wrapper{
+                width:75%;
+                margin-left:12.5%;
+                overflow:hidden;
+            }
+    
+            a{
+                text-decoration:none;
+            }
+            /*최상위 메뉴 스타일*/
+            .top_banner
+                {
+                height:30px;
+                margin-left: 30px;      
+                
+            }
+            .top_header{
+                padding-left:160px;
+                border-bottom:1px solid lightgray;
+                padding-bottom:-25px;     
+            }
+            .top_asidebanner{
+                margin-left:420px;
+                margin-right:10px;
+            }
+            .top_asidebanner_nickname{
+                display:inline-block;
+                font-family:monospace;
+                margin-bottom:-30px;
+            }
+            /*닉네임 리스트 스타일*/
+            .top_asidebanner_nickname_list{
+               height:0px;
+               opacity:0;
+               position:fixed;
+               top:40px;
+               right:270px;
+           }
+           .top_asidebanner_nickname_list>ul{
+                height:60px;
+                font-size:12px;
+                list-style:none;
+            }
+            .top_asidebanner_nickname_list li{
+                padding:5px;
+                background-color:white;
+                border-left:0.5px solid lightgray;
+                border-right:.05px solid lightgray;
+                box-shadow: 0 4px 4px -4px black;
+                cursor:pointer;
+            }
+            .top_asidebanner_nickname_list>ul>li:nth-child(1){
+                border-top:0.5px solid lightgray;
+                border-radius:3px 3px 0 0;
+            }
+            .top_asidebanner_nickname_list>ul>li:nth-child(4){
+                border-bottom:0.5px solid lightgray;
+                border-radius: 0 0 3px 3px;
+            }
+            /*상위메뉴 헤더*/
+            #head{
+                width:100%;
+                height:160px;
+                margin-bottom:10px;
+                position:relative;
+            }
+            #head>div{
+                display:inline-block;
+            }
+            /*로고이미지속성*/
+            .logo{
+                width:15%;
+                height:30%;
+            }
+            .logo>a>img{
+                width:120%;
+                margin-top:30px;
+                margin-left:-30px;
+            }
+            /*검색창 속성*/
+            /*검색창 싸는 박스 속성*/
+            .search{
+                width:60%;
+                height:30%;
+                margin-left:6%;
+                position:absolute;
+            }
+            .searchbar{
+                width:80%;
+                height:100%;
+                margin-top:9%;
+                background-color:white;
+                position:relative;
+                border:solid 2px #02a0ff;
+                overflow:hidden;
+            }
+            .searchbar>input{
+                width:80%;
+                height:100%;
+                position:absolute;
+                top:0;
+                border:none;
+            }
+            /*검색버튼 속성*/
+            .searchbar>a{
+                width:10%;
+                height:100%;
+                position:absolute;
+                top:3px;
+                left:92%;
+                border:none;
+                background-color:white;
+                cursor:pointer;
+            }
+            .searchbar>a>img{
+                width:45px;
+                height:45px;
+            }
+
+            /*상위 광고 속성*/
+            .head_aside_ad{
+                width:20%;
+                height:30%;
+                position:absolute;
+                left:80%;
+                margin-top:10px;
+            }
+            
+
+            /*네비게이션 속성*/
+            #nav{
+                width:1590px;
+                height:50px;
+                border-top:1px solid #02a0ff;
+                border-bottom:1px solid #02a0ff;
+                position:relative;
+                top:0px;
+                box-shadow: 1px;
+                background-color: #02a0ff;
+                margin-left:-10px;
+                padding-left:40px;
+            }
+            .navmenu a{
+                display:inline-block;
+            }
+            /*네비게이션 넓이 wrapper에 맞춤*/
+            .navmenu{
+                width:80%;
+                margin-left:12%;
+                margin-top:12px;
+            }
+            .navmenu a>p{
+                margin-right:40px;
+                color:white;
+                text-decoration:bold;
+                font-size:15px;
+                display:inline-block;
+                margin-top:-8px;
+                cursor:pointer;
+            }
+            .navmenu p{
+                margin-right:40px;
+                color:white;
+                text-decoration:bold;
+                font-size:15px;
+                display:inline-block;
+                margin-top:-8px;
+                cursor:pointer;
+            }
+            /*메인 레이아웃 설정*/
+            .leftside{
+                width:67%;
+                padding-right:30px;
+                
+            }
+            .all1{
+                height:160px;
+            }
+            .all2{
+                height:300px;
+                padding-top:10px;
+            }
+            /*메인 전체 - 광고/ 아티클*/
+            #main1{
+                width:100%
+            }
+            .main1{
+                width:100%;
+                margin-top:15px;
+            }
+            .main_ad{
+                width:67%;
+                padding-right:30px;
+                
+            }
+            /* 상위 광고~ 프로필 속성 */
+            .main_ad_position{
+                height:160px;
+            }
+            /*광고 슬라이드 버튼 스타일*/
+            #left-button{
+                border:none;
+                border-radius:50%;
+                width:15px;
+                height:15px;
+                background-color:lightgray;
+                margin-left:330px;
+                position:relative;
+                top:-20px;
+                cursor:pointer;
+            }
+            #right-button{
+                border:none;
+                border-radius:50%;
+                width:15px;
+                height:15px;
+                background-color:#02a0ff;
+                position:relative;
+                top:-20px;
+                cursor:pointer;
+            }
+
+            /*추천활동 리스트 속성*/
+            .person_recommendlist{
+               width:382px;
+               height:0px;
+               overflow:hidden;
+               position:absolute;
+               top:390px;
+               right:207px;
+               background-color:white;
+               list-style:none;
+               border:0.5px solid lightgray;
+               
+           }
+           .person_recommendlist>ul{
+               margin-top:1px;
+               background-color:white;
+               list-style:none;
+           }
+           .person_recommendlist>ul>li{
+               height:50;
+               background-color:white;
+               list-style:none;
+               border-bottom:0.5px solid lightgray;
+               margin-left:-40px;
+               padding-left:10px;
+               line-height:3;
+               cursor:pointer;
+           }
+            /*커뮤니티 창 속성*/
+            .tab { display: none; }
+            .tab.current { display: inherit; }
+
+
+            /* 하위 메뉴 속성 전체 */
+            .article{
+                height:300px;
+                padding-top:10px;
+            }
+            /*프로필 창 속성*/
+            /*프로필 전체를 감싸는 태그*/
+            
+            /*상위 프로필*/
+           
+            .person_info{
+                width:100%;
+                height:150px;
+                background-color:white;
+                border:0.5px solid lightgray;
+                position:relative;
+            }
+            .person_main{
+                height:100px;
+                position:relative
+            }
+            .person_main>img{
+                display:inline-block;
+                height:60px;
+                position:absolute;
+                top:15px;
+                left:15px;
+            }
+            .person_main>div{
+                display:inline-block;
+                position:absolute;
+                top:0px;
+                left:90px;
+                
+            }
+            .person_main>div>p{
+                display:inline-block;
+                margin-top:-15px;
+            }
+            .person_main>button{
+                width:90px;
+                height:30px;
+                font-size:11px;
+                position:absolute;
+                top:30px;
+                left:270px;
+                border:0px;
+                background-color:lightgray;
+                color:white;
+                border-radius:3px;
+                cursor:pointer;
+            }
+            #num{
+                color:blue;
+            }
+            .person_sub>td{
+                text-align:center;
+                width:20%;
+                border-top:0.5px solid lightgray;
+            }
+            .person_sub>td:nth-child(1){
+                border-right:0.5px solid lightgray;
+            }
+            .person_sub>td>a{
+                color:black;
+                text-decoration:none;
+                font-size:12px;
+            }
+
+             /*하위 기사 정보 스타일 속성*/
+            /*한개 기사 묶는 wrapper*/
+            .article{
+                height:140px;
+                width:100%;
+                position:relative;
+            }
+            /*합격자료 제외 하위 묶음*/
+            .article-info{
+                margin-top:-50px;
+            }
+            .article-info>img{
+                width:100px;
+                display:inline-block;
+                margin-top:30px
+            }
+            /*기사 줄글+ 이미지정보*/
+            .article-info div{
+                position:absolute;
+                display:inline-block;
+                top:5px;
+                margin-left:15px;
+                overflow:hidden;
+            }
+            /*기사줄글*/
+            .arcinfo{
+                font-size:11px;
+                overflow:hidden;
+            }
+           
+            /* 커뮤니티 이야기 */
+            .subnewsbar{
+                height:300px;
+                width:97%;
+                border:0.5px solid lightgray;
+                border-radius:3px;
+                padding-top:14px;
+                padding-left:10px;
+                margin-top:10px;
+            }
+          
+            .subnewsbar>h4{
+                margin-top:5px;
+                margin-bottom:5px;
+                margin-left:15px
+            }
+            .subnewsbar>a{
+                font-size:13px;
+                color:black;
+                font-weight:bold;
+                margin-left:15px;
+            }
+             /*커뮤니티 리스트 스타일 */
+             #article_community + a{
+                color:#02a0ff;
+                cursor:pointer;
+            }
+            #article_community~ol{
+                cursor:pointer;
+            }
+            /*관심주제 설정*/
+            .news_list{
+                width:100%;
+                height:140px;
+                margin-top:10px;
+                text-align:center;
+                border-collapse:collapse;   
+            }
+            .news_list img{
+                width:80%;
+                height:80px;
+                margin:10px;
+            }
+            .main_ad{
+                padding-top:10px;
+            }
+            .main_ad>p{
+                display:inline-block;
+            }
+
+
+            /*대외활동 카테고리*/ 
+            .category1,.category2,.category3,.category4{
+                width:100%;
+                height:50px;
+                text-align:center;
+            }
+            .columnlist a{
+                color:red;
+            }
+            .today-article1,.today-article2,.today-article3,.today-article4{
+                width:100%;
+            }
+            .article_img{
+                display:inline-block;
+                height:150px;
+                width:150px;
+            }
+            
+            /*활동리스트 분야별 속성*/
+            .today-article1{
+                 display:none;
+             }
+             /*current로 전환되면 표시 첫번째 카테고리*/
+             .today-article1.current2{
+                 display:inherit;
+             }
+             /*current로 전환되면 표시 두번째 카테고리*/
+             .today-article2{
+                 display:none;
+             }
+            
+             .today-article2.current2{
+                 display:inherit;
+             }
+             /*current로 전환되면 표시 3번째 카테고리*/
+             .today-article3{
+                 display:none;
+             }
+             .today-article3.current2{
+                 display:inherit;
+             }
+              /*current로 전환되면 표시 4번째 카테고리*/
+             .today-article4{
+                 display:none;
+             }
+             .today-article4.current2{
+                 display:inherit;
+             }
+
+            /*기사 리스트 스타일 속성*/
+            .today-article1 td{
+                position:relative;
+                overflow:hidden;
+                position:relative;
+            }
+            .today-article2 td{
+                position:relative;
+                overflow:hidden;
+                position:relative;
+            }
+            .today-article3 td{
+                position:relative;
+                overflow:hidden;
+                position:relative;
+            }
+            .today-article4 td{
+                position:relative;
+                overflow:hidden;
+                position:relative;
+               
+            }
+            .today-article1 td>div{
+                display:inline-block;
+                position:relative;
+                top:-160px;
+                left:170px;
+                margin-bottom:-300px;
+            }
+            .today-article2 td>div{
+                display:inline-block;
+                position:relative;
+                top:-160px;
+                left:170px;
+                margin-bottom:-300px;
+            }
+            .today-article3 td>div{
+                display:inline-block;
+                position:relative;
+                top:-160px;
+                left:170px;
+                margin-bottom:-300px;
+            }
+            .today-article4 td>div{
+                display:inline-block;
+                position:relative;
+                top:-160px;
+                left:170px;
+                margin-bottom:-300px;
+            }
+            /*카테고리 메뉴 표 스타일 */
+            .category1,.category2,.category3,.category4{
+                border: 0.5px solid lightgray;
+                border-collapse:collapse;
+            }
+            .category1 td{
+                width:20%;
+               
+            }
+            .category2 td{
+                width:20%;
+               
+            }
+            .category3 td{
+                width:20%
+            }
+            .category4 td{
+                width:20%
+            }
+            .firstcss{
+                background-color:lightgray;
+            }
+
+           
+            /*자소서 검색 슬라이드 */
+            .company_search{
+                border:none;
+                background-color:#02a0ff;
+                width:200px;
+                height:0px;
+                position:absolute;
+                top:250px;
+                left:650px;
+                overflow:hidden;
+            }
+            .company_search>h5{
+                margin-top:15px;
+                margin-left:8px;
+                color:white;
+                
+            }
+            .company_search>input{
+                border:1px solid white;
+                width:70%;
+                height:40%;
+                background-color:white;
+                display:inline-block;
+                margin-top:-16px;
+                margin-left:8px;
+
+            }
+            .company_search>a>img{
+                border-top:1px solid white;
+                border-right:1px solid white;
+                border-bottom:1px solid white;
+                position:absolute;
+                top:55px;
+                width:20%;
+                height:38%;
+                display:inline-block;
+            }
+            /*채용달력 슬라이드*/
+            .calender{
+                position:absolute;
+                top:265px;
+                left:420px;
+                overflow:hidden;
+                height:0px;
+            }
+            .calender>img{
+                width:400px;
+                height:380px;
+
+            }
+            /*채용달력 -> 정보 */
+            #info1{
+                position:absolute;
+                top:250px;
+                left:180px;
+                background-color:red;
+                width:40px;
+                height:40px;
+                opacity:0.3;
+            }
+            #info2{
+                position:absolute;
+                top:250px;
+                left:280px;
+                background-color:pink;
+                width:40px;
+                height:40px;
+                opacity:0.3;
+            }
+            #info3{
+                position:absolute;
+                top:310px;
+                left:130px;
+                background-color:blue;
+                width:40px;
+                height:40px;
+                opacity:0.3;
+            }
+            #info4{
+                position:absolute;
+                top:310px;
+                left:180px;
+                background-color:green;
+                width:40px;
+                height:40px;
+                opacity:0.3;
+            }
+            #info5{
+                position:absolute;
+                top:310px;
+                left:280px;
+                background-color:yellow;
+                width:40px;
+                height:40px;
+                opacity:0.3;
+            }
+            .infoinfo{
+                position:absolute;
+                top:265px;
+                left:420px;
+                background-color:red;
+                width:400px;
+                height:0px;
+                }
+            .listinfo{
+                position:absolute;
+                top:300px;
+                right:30px;
+                background-color:pink;
+                width:300px;
+                height:300px;
+            }
+
+            
+        </style>
+    </head>
+	<body>
+        <!--최상위메뉴-->
+        <header class="top_header">
+            <a  href="#"><img class="top_banner" src="상위카카오배너.png"></a> <a  href="#"><img class="top_banner" src="상위카카오배너.png"></a> <a  href="#"><img class="top_banner" src="상위카카오배너.png"></a> <a  href="#"><img class="top_banner" src="상위카카오배너.png"></a> <a  href="#"><img class="top_banner" src="상위카카오배너.png"></a> 
+            <a  href="#"><img class="top_asidebanner" src="알림스크랩.png"></a><a href="#"><h6 class="top_asidebanner_nickname">닉네임</h6><img src="아래로 펼치기.png"></a>
+        </header>
+    <!--상위 메뉴를 감싸는 태그-->   
+	<div class="wrapper">
+		<header id="head">
+			<div class="logo">
+			<a href="#"><img src="링커리어로고.png"></a>	
+			</div>
+            <!--검색창-->
+			<div class="search">
+				<div class="searchbar">
+					<input type="search"><a href="https://linkareer.com/search?q=%EB%A7%81%EC%BB%A4%EB%A6%AC%EC%96%B4&p=1"><img src="검색버튼.png" class="lenses"></a>
+				</div>
+			</div>
+            <!--오른쪽 광고-->
+			<div class="head_aside_ad">
+				<a href="#"><img src="링커리어상위배너.png"></a>	
+			</div>
+		</header>
+	</div>
+	<!--네비게이션-->
+	<nav id="nav">
+		<div class="navmenu">
+            <a href="newpage1.html"><p id="firstmenu">대외활동</p></a> <a href="newpage2.html"><p id="secondmenu">공모전</p></a> <a href="newpage3.html"><p id="thirdmenu">동아리</p></a> <a href="newpage4.html"><p id="fourthmenu">인턴</p></a>
+			<p id="fifthmenu">채용</p> <p id="sixthmenu">자소서만능검색기</p>
+		</div>
+	</nav>
+	<!-- 하위 전체 감싸는 태그-->
+    <div class="wrapper">
+		<section id="main1">
+			<table class="main1" >
+				<tr>
+					<td class="leftside" class="all1">
+                    <!--메인광고-->
+                        <div data-role="slider" data-width="900" data-height="300">
+                        <div class="main_ad_container">
+                            <div class="main_ad_item">
+                               <img src="메인광고.png">
+                            </div>
+                            <div class="main_ad_item">
+                                <img src="메인광고2.png">
+                            </div>
+                            <div class="main_ad_item">
+                                <img src="메인광고3.png">
+                            </div>
+                            </div>
+                        </div>
+                        <button id="left-button"></button>
+                        <button id="right-button"></button>
+                    </td>
+					<td>
+                        <div class="company_search"><h5>찾고싶은 기업의<br>이름을 입력하세요!</h5><input><a href="https://linkareer.com/cover-letter/search?keyword=&organizationName=%EC%82%BC%EC%84%B1%EC%A0%84%EC%9E%90&page=1&role=&sort=RELEVANCE"><img src="검색버튼.png"></a></div>
+                    <!--프로필--> 
+                    <table  class="person_info">
+                        <tr>
+                            <td colspan="2" class="person_main"><img src="프로필이미지.png"><div><h2>닉네임</h2><p>맞춤활동 추천</p><p id="num">1104</p></div><button>로그아웃</button></td>
+                        </tr>
+                        <tr class="person_sub">
+                            <td><a href="#">알림</a></td>
+                            <td><a href="#">스크랩</a></td>
+                        </tr>
+                        <tr>
+                            <!--추천활동리스트-->
+                            <div class="person_recommendlist">
+                                <ul>
+                                    <li>행복지역아동센터 교육봉사 대학생부문 선발</li>
+                                    
+                                    <li>SK 이노베이션 그린 에듀케이션 뭐시기 모집</li>
+                                    
+                                    <li>현대차 정몽구재단 대학생 서포터즈 모집</li>
+                                    
+                                    <li>셀레브리티 뷰티 홍보단 월 활동비 15만원</li>
+                                    
+                                    <li> AI 국비지원 교육기관 경기도 과학진흥원</li>     
+                                </ul>
+                            </div>
+                        </tr>
+						</table>
+                        
+					</td>
+				</tr>
+                <!--하위 메뉴 전체-->
+				<tr>
+					<td class="leftside" class="all2">
+                        <!--아티클-->
+                        <article class="article">
+                           <h6>합격자료</h6> <div class="article-info"><img src="기사배너.png"><div><h5>지원할때 자신의 경험에 초점 맞추세요</h5><p class="arcinfo">Q 자신의 역량과 뭐 그런것들을 강조해야 붙기 쉽습니다...<br>
+                            지금은 밤 9시 23분.. 중간고사가 2주 남았다 왜 진작에 수강철회를 하지 않았을까...<br>21학점 개무리 너를 과대평가 하지 말렴.. 
+                            </p></div></div>
+                        </article>
+                        <hr>
+                        <article class="article">
+                           <h6>합격자료</h6> <div class="article-info"><img src="기사배너.png"><div><h5>지원할때 자신의 경험에 초점 맞추세요</h5><p class="arcinfo">Q 자신의 역량과 뭐 그런것들을 강조해야 붙기 쉽습니다...<br>
+                                지금은 밤 3시 03분.... 자고싶다... 나는야 멍청이.....<br>21학점 개무리 너를 과대평가 하지 말렴.. 
+                                </p></div></div>
+                        </article> 
+					</td>
+
+                    <!--실시간 베스트-->
+					<td class="all2"><div class="subnewsbar">
+						<h4 id="article_community">커뮤니티 베스트 이야기</h4>
+                        <a href="#" data="community_best1" >실시간</a> <a href="#" data="community_best2">댓글순</a> <a href="#" data="community_best3">추천순</a> <a href="#" data="community_best4">월간</a> 
+                        <ol id="community_best1" class="tab current">
+                            <li>OOOO 컨텐츠 에디터 발표 났나요?</li>
+                            <li>OOOO 컨텐츠 에디터 발표 났나요?</li>
+                            <li>OOOO 컨텐츠 에디터 발표 났나요?</li>
+                            <li>OOOO 컨텐츠 에디터 발표 났나요?</li>
+                            <li>OOOO 컨텐츠 에디터 발표 났나요?</li>
+                            <li>OOOO 컨텐츠 에디터 발표 났나요?</li>
+                            <li>OOOO 컨텐츠 에디터 발표 났나요?</li>
+                            <li>OOOO 컨텐츠 에디터 발표 났나요?</li>
+                            <li>OOOO 컨텐츠 에디터 발표 났나요?</li>
+                            <li>OOOO 컨텐츠 에디터 발표 났나요?</li>
+                        </ol>
+                        <ol id="community_best2" class="tab">
+                            <li>OOOO dkdkdkdkdkdkdkdkdkdkdkdkdk</li>
+                            <li>OOOO dkdkdkdkdkdkdkdkdkdkdkdkdk</li>
+                            <li>OOOO dkdkdkdkdkdkdkdkdkdkdkdkdk</li>
+                            <li>OOOO dkdkdkdkdkdkdkdkdkdkdkdkdk</li>
+                            <li>OOOO dkdkdkdkdkdkdkdkdkdkdkdkdk</li>
+                            <li>OOOO dkdkdkdkdkdkdkdkdkdkdkdkdk</li>
+                            <li>OOOO dkdkdkdkdkdkdkdkdkdkdkdkdk</li>
+                            <li>OOOO dkdkdkdkdkdkdkdkdkdkdkdkdk</li>
+                            <li>OOOO dkdkdkdkdkdkdkdkdkdkdkdkdk</li>
+                            <li>OOOO dkdkdkdkdkdkdkdkdkdkdkdkdk</li>
+                        </ol>
+                        <ol id="community_best3" class="tab">
+                            <li>OOsdkfkdkdkdddddfgdfgdfgdddfgk</li>
+                            <li>OOsdkfkdkdkddddddfgdfgdfgdfgddk</li>
+                            <li>OOsdkfkdkdkdddrferertedfgrkkddk</li>
+                            <li>OOsdkfkdkdkdddddddfgdfgdkdkkddk</li>
+                            <li>OOsdkfkdkdkdssde443vddfgdfgkkddk</li>
+                            <li>OOsdkfkdkdkddddddfdgdfgdfgddddk</li>
+                            <li>OOsdkfkdkdkdddddddddddkdkdkkddk</li>
+                            <li>OOsdkfkdkdkdddddddddddkdkdkkddk</li>
+                            <li>OOsdkfkdkdkdddddddddddkdkdkkddk</li>
+                            <li>OOsdkfkdkdkdddddddddddkdkdkkddk</li>
+                            
+                        </ol>
+                        <ol id="community_best4" class="tab">
+                            <li>OOOO 컨텐츠 에디dfgfdgfdgfdg 났나요?</li>
+                            <li>OOOO fdgfdgfdgfgdfdg났나요?</li>
+                            <li>OOOO 컨텐츠 fdgfgfdgfdgfgd 났나요?</li>
+                            <li>OOOO 컨텐츠fdggfdfdgfdg표 났나요?</li>
+                            <li>OOOO 컨fdggfddfgdgfdfgdfgfgd났나요?</li>
+                            <li>OOOO 컨텐츠fdgfdgfgdfgd 났나요?</li>
+                            <li>OOOO 컨텐츠 에fgfdgfgdfgdfdg났나요?</li>
+                            <li>OOOO 컨텐fdgfgdfgd발표 났나요?</li>
+                            <li>OOOO 컨텐츠 에디fdfdgf났나요?</li>
+                            <li>OOsdkfkdkdkdddddddddddkdkdkkddk</li>
+                        </ol>
+					</div></td>
+				</tr>
+				<tr>
+                    <!--관심있는 활동정보-->
+					<td>
+					<h4>관심있는 활동정보 </h4>
+					<table class="news_list">
+						<tr>
+							<td><img src="스크랩배너.png"></td><td><img src="스크랩배너.png"></td><td><img src="스크랩배너.png"></td>
+						</tr>
+						<tr>
+							<td><img src="스크랩배너.png"></td><td><img src="스크랩배너.png"></td><td><img src="스크랩배너.png"></td>
+						</tr>
+					</table>
+					</td>
+                    <td id="ad2" rowspan="4">
+                    <img src="#" class="ad2">
+                    </td>
+				</tr>
+                <!--활동 리스트 메뉴-->
+				<tr>
+					<td>
+					<p class="month_article">이번달 대외활동 리스트 </p>
+					<table class="category1" border="1">
+					<tr>
+						<td data="data1" class="firstcss">과학/기술</td>
+						<td data="data2">인문</td>
+						<td data="data3">마케팅</td>
+						<td data="data4">예술</td>
+						<td data="data5">기타</td>
+				
+					</tr>
+					</table>
+					</td>
+
+				</tr>
+                <!--공모전배너-->
+				<tr>
+					<td>
+					<table class="today-article1 current2" id="data1">
+					<tr><td><img src="공모전배너1.png" class="article_img"><div id="supporter"><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddd
+					dddddddddddddddddddddddddddddddddddddddddd
+					dddddddddddddddddddddddddddddddddddddddddddddddd
+					ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+					<tr><td><img src="공모전배너1.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+					ddddddddddddddddddddddddddddddddddddddddd
+					dddddddddddddddddddddddddddddddddddddddddddddddd
+					ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+					<tr><td><img src="공모전배너1.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfddddddddddddddddddddddddddd
+					dddddddddddddddddddddddddddddddddddddddddd
+					dddddddddddddddddddddddddddddddddddddddddddddddd
+					ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+					<tr><td><img src="공모전배너1.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+					ddddddddddddddddddddddddddddddddddddddddd
+					dddddddddddddddddddddddddddddddddddddddddddddddd
+					ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+					</table>
+                    <table class="today-article1" id="data2">
+                        <tr><td><img src="공모전배너2.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                        <tr><td><img src="공모전배너2.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                        <tr><td><img src="공모전배너2.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                        <tr><td><img src="공모전배너2.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                        </table>
+                        <table class="today-article1" id="data3">
+                        <tr><td><img src="공모전배너3.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                         <tr><td><img src="공모전배너3.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+                         ddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                    ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                    <tr><td><img src="공모전배너3.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                    <tr><td><img src="공모전배너3.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                    </table>
+                    <table class="today-article1" id="data4">
+                    <tr><td><img src="공모전배너4.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddd
+                         dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                        <tr><td><img src="공모전배너4.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddd
+                         dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                        <tr><td><img src="공모전배너4.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfddddddddddddddddddddddddddd
+                         dddddddddddddddddddddddddddddddddddddddddd
+                         dddddddddddddddddddddddddddddddddddddddddddddddd
+                         ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                         <tr><td><img src="공모전배너4.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddd
+                         dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                     </table>
+                    <table class="today-article1" id="data5">
+                        <tr><td><img src="공모전배너5.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddd
+                         dddddddddddddddddddddddddddddddddddddddddddddddd
+                         ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                       <tr><td><img src="공모전배너5.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+                          ddddddddddddddddddddddddddddddddddddddddd
+                          dddddddddddddddddddddddddddddddddddddddddddddddd
+                         ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                         <tr><td><img src="공모전배너5.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfddddddddddddddddddddddddddd
+                         dddddddddddddddddddddddddddddddddddddddddd
+                         dddddddddddddddddddddddddddddddddddddddddddddddd
+                          ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                        <tr><td><img src="공모전배너5.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+                         ddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                         ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                         </table>
+					</td>
+
+				</tr>
+                
+                <tr>
+					<td>
+					<p class="month_article">이번달 공모전 리스트 </p>
+					<table class="category2" border="1">
+					<tr>
+						<td data="data6" class="firstcss">과학/기술</td>
+						<td data="data7">인문</td>
+						<td data="data8">마케팅</td>
+						<td data="data9">예술</td>
+						<td data="data10">기타</td>
+				
+					</tr>
+					</table>
+					</td>
+
+				</tr>
+				<tr>
+					<td>
+					<table class="today-article2 current2" id="data6">
+					<tr><td><img src="공모전배너1.png" class="article_img"><div id="supporter"><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddd
+					dddddddddddddddddddddddddddddddddddddddddd
+					dddddddddddddddddddddddddddddddddddddddddddddddd
+					ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+					<tr><td><img src="공모전배너1.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+					ddddddddddddddddddddddddddddddddddddddddd
+					dddddddddddddddddddddddddddddddddddddddddddddddd
+					ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+					<tr><td><img src="공모전배너1.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfddddddddddddddddddddddddddd
+					dddddddddddddddddddddddddddddddddddddddddd
+					dddddddddddddddddddddddddddddddddddddddddddddddd
+					ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+					<tr><td><img src="공모전배너1.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+					ddddddddddddddddddddddddddddddddddddddddd
+					dddddddddddddddddddddddddddddddddddddddddddddddd
+					ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+					</table>
+                    <table class="today-article2" id="data7">
+                        <tr><td><img src="공모전배너2.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                        <tr><td><img src="공모전배너2.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                        <tr><td><img src="공모전배너2.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                        <tr><td><img src="공모전배너2.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                        </table>
+                        <table class="today-article2" id="data8">
+                        <tr><td><img src="공모전배너3.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                         <tr><td><img src="공모전배너3.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+                         ddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                    ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                    <tr><td><img src="공모전배너3.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                    <tr><td><img src="공모전배너3.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                    </table>
+                    <table class="today-article2" id="data9">
+                    <tr><td><img src="공모전배너4.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddd
+                         dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                        <tr><td><img src="공모전배너4.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddd
+                         dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                        <tr><td><img src="공모전배너4.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfddddddddddddddddddddddddddd
+                         dddddddddddddddddddddddddddddddddddddddddd
+                         dddddddddddddddddddddddddddddddddddddddddddddddd
+                         ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                         <tr><td><img src="공모전배너4.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddd
+                         dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                     </table>
+                    <table class="today-article2" id="data10">
+                        <tr><td><img src="공모전배너5.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddd
+                         dddddddddddddddddddddddddddddddddddddddddddddddd
+                         ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                       <tr><td><img src="공모전배너5.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+                          ddddddddddddddddddddddddddddddddddddddddd
+                          dddddddddddddddddddddddddddddddddddddddddddddddd
+                         ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                         <tr><td><img src="공모전배너5.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfddddddddddddddddddddddddddd
+                         dddddddddddddddddddddddddddddddddddddddddd
+                         dddddddddddddddddddddddddddddddddddddddddddddddd
+                          ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                        <tr><td><img src="공모전배너5.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+                         ddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                         ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                         </table>
+					</td>
+
+				</tr>
+                <tr>
+					<td>
+					<p class="month_article">이번달 동아리모집 리스트 </p>
+					<table class="category3" border="1">
+					<tr>
+						<td data="data11" class="firstcss">과학/기술</td>
+						<td data="data12">인문</td>
+						<td data="data13">마케팅</td>
+						<td data="data14">예술</td>
+						<td data="data15">기타</td>
+				
+					</tr>
+					</table>
+					</td>
+
+				</tr>
+				<tr>
+					<td>
+					<table class="today-article3 current2" id="data11">
+					<tr><td><img src="공모전배너1.png" class="article_img"><div id="supporter"><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddd
+					dddddddddddddddddddddddddddddddddddddddddd
+					dddddddddddddddddddddddddddddddddddddddddddddddd
+					ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+					<tr><td><img src="공모전배너1.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+					ddddddddddddddddddddddddddddddddddddddddd
+					dddddddddddddddddddddddddddddddddddddddddddddddd
+					ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+					<tr><td><img src="공모전배너1.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfddddddddddddddddddddddddddd
+					dddddddddddddddddddddddddddddddddddddddddd
+					dddddddddddddddddddddddddddddddddddddddddddddddd
+					ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+					<tr><td><img src="공모전배너1.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+					ddddddddddddddddddddddddddddddddddddddddd
+					dddddddddddddddddddddddddddddddddddddddddddddddd
+					ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+					</table>
+                    <table class="today-article3" id="data12">
+                        <tr><td><img src="공모전배너2.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                        <tr><td><img src="공모전배너2.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                        <tr><td><img src="공모전배너2.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                        <tr><td><img src="공모전배너2.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                        </table>
+                        <table class="today-article3" id="data13">
+                        <tr><td><img src="공모전배너3.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                         <tr><td><img src="공모전배너3.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+                         ddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                    ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                    <tr><td><img src="공모전배너3.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                    <tr><td><img src="공모전배너3.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                    </table>
+                    <table class="today-article3" id="data14">
+                    <tr><td><img src="공모전배너4.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddd
+                         dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                        <tr><td><img src="공모전배너4.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddd
+                         dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                        <tr><td><img src="공모전배너4.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfddddddddddddddddddddddddddd
+                         dddddddddddddddddddddddddddddddddddddddddd
+                         dddddddddddddddddddddddddddddddddddddddddddddddd
+                         ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                         <tr><td><img src="공모전배너4.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddd
+                         dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                     </table>
+                    <table class="today-article3" id="data15">
+                        <tr><td><img src="공모전배너5.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddd
+                         dddddddddddddddddddddddddddddddddddddddddddddddd
+                         ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                       <tr><td><img src="공모전배너5.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+                          ddddddddddddddddddddddddddddddddddddddddd
+                          dddddddddddddddddddddddddddddddddddddddddddddddd
+                         ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                         <tr><td><img src="공모전배너5.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfddddddddddddddddddddddddddd
+                         dddddddddddddddddddddddddddddddddddddddddd
+                         dddddddddddddddddddddddddddddddddddddddddddddddd
+                          ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                        <tr><td><img src="공모전배너5.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+                         ddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                         ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                         </table>
+					</td>
+
+				</tr>
+                <tr>
+					<td>
+					<p class="month_article">이번달 인턴활동 리스트 </p>
+					<table class="category4" border="1">
+					<tr>
+						<td data="data16" class="firstcss">과학/기술</td>
+						<td data="data17">인문</td>
+						<td data="data18">마케팅</td>
+						<td data="data19">예술</td>
+						<td data="data20">기타</td>
+					</tr>
+					</table>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					<table class="today-article4 current2" id="data16">
+					<tr><td><img src="공모전배너1.png" class="article_img"><div id="supporter"><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddd
+					dddddddddddddddddddddddddddddddddddddddddd
+					dddddddddddddddddddddddddddddddddddddddddddddddd
+					ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+					<tr><td><img src="공모전배너1.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+					ddddddddddddddddddddddddddddddddddddddddd
+					dddddddddddddddddddddddddddddddddddddddddddddddd
+					ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+					<tr><td><img src="공모전배너1.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfddddddddddddddddddddddddddd
+					dddddddddddddddddddddddddddddddddddddddddd
+					dddddddddddddddddddddddddddddddddddddddddddddddd
+					ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+					<tr><td><img src="공모전배너1.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+					ddddddddddddddddddddddddddddddddddddddddd
+					dddddddddddddddddddddddddddddddddddddddddddddddd
+					ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+					</table>
+                    <table class="today-article4" id="data17">
+                        <tr><td><img src="공모전배너2.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                        <tr><td><img src="공모전배너2.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                        <tr><td><img src="공모전배너2.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                        <tr><td><img src="공모전배너2.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                        </table>
+                        <table class="today-article4" id="data18">
+                        <tr><td><img src="공모전배너3.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                         <tr><td><img src="공모전배너3.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+                         ddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                    ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                    <tr><td><img src="공모전배너3.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                    <tr><td><img src="공모전배너3.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                    </table>
+                    <table class="today-article4" id="data19">
+                    <tr><td><img src="공모전배너4.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddd
+                         dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                        <tr><td><img src="공모전배너4.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddd
+                         dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                        <tr><td><img src="공모전배너4.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfddddddddddddddddddddddddddd
+                         dddddddddddddddddddddddddddddddddddddddddd
+                         dddddddddddddddddddddddddddddddddddddddddddddddd
+                         ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                         <tr><td><img src="공모전배너4.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddd
+                         dddddddddddddddddddddddddddddddddddddddddddddddd
+                        ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                     </table>
+                    <table class="today-article4" id="data20">
+                        <tr><td><img src="공모전배너5.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddd
+                         dddddddddddddddddddddddddddddddddddddddddddddddd
+                         ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                       <tr><td><img src="공모전배너5.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+                          ddddddddddddddddddddddddddddddddddddddddd
+                          dddddddddddddddddddddddddddddddddddddddddddddddd
+                         ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                         <tr><td><img src="공모전배너5.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfddddddddddddddddddddddddddd
+                         dddddddddddddddddddddddddddddddddddddddddd
+                         dddddddddddddddddddddddddddddddddddddddddddddddd
+                          ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                        <tr><td><img src="공모전배너5.png" class="article_img"><div><h5>대학생 과학기술 연합회 주최 에너지 서포터즈</h5><p>loreniptosidnfdddddddddddddddddddddddddddd
+                         ddddddddddddddddddddddddddddddddddddddddd
+                        dddddddddddddddddddddddddddddddddddddddddddddddd
+                         ddddddddddddddddddddddddddddddddddddddddddddddddd</p></div></td></tr>
+                         </table>
+					</td>
+				</tr>
+			</table>
+		</section>
+		</div>
+        <div class="top_asidebanner_nickname_list">
+            <ul>
+                <li class="firstprolist">마이페이지</li>
+                <li>마이페이지</li>
+                <li>마이페이지</li>
+                <li>마이페이지</li>
+            </ul>
+        </div>
+        <div class="calender"><img src="채용달력.png"><div id="info1"></div><div id="info2"></div><div id="info3"></div><div id="info4"></div><div id="info5"></div>
+
+		</body>
+</html>

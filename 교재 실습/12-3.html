@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title>jQuery Basic</title>
+	<script>	
+		window.onload = function () {
+			var count = 0;
+			var image = document.getElementById('image');
+			var frames = [
+			'dddd.png','dddk.png','dddd.png','dddk.png','dddd.png','dddk.png','dddd.png','dddk.png'
+			,'dddd.png','dddk.png','dddd.png','dddk.png','dddd.png','dddk.png','dddd.png','dddk.png'
+			];
+			
+			setInterval(function(){
+				image.src = frames[count % frames.length];
+				count = count + 1;
+			},3000/20)
+			};
+	</script>
+</head>
+	<body>
+		<img id="image">
+	</body>
+</html>

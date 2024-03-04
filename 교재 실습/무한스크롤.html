@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Twitter</title>
+    </head>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script>	
+	$(document).ready(function(){
+        $('#leftside').css({
+                display:'inline-block',
+                width:'30%',
+                height:'100%',
+                position:'absolute',
+                top:'0'
+        });
+        $('#middle').css({
+                display:'inline-block',
+                width:'35%',
+                height:'100%',
+                position:'absolute',
+                top:'0',
+                left:'30%'
+        });    
+        $('#rightside').css({
+                display:'inline-block',
+                width:'30%',
+                height:'100%',
+                position:'absolute',
+                top:'0',
+                left:'65%'
+        });
+        $('img').css({
+                display:'inline-block',
+                width:'30px',
+                height:'30px'
+        });
+        $('td').css({
+                display:'inline-block', 
+                height:'60px'
+        });
+        $('#logo').css({
+               width:'60px',
+                height:'60px'
+        });
+        $('.pic').attr('src','ㅇ.jpeg').css({
+            borderRadius:'50%'
+        })
+        $('.profile').css({
+            display:'inline-block',
+            marginTop:'70px'
+        });
+        var appendDocument = function(){
+				for(var i=0;i <20; i++){
+					
+					$(' <div class="box"><img class="pic"> <p class="profile">시연</p><p class="profile"></p>@reddfsee.fon 16시간</p><p>LP판 개좋다... 투명한거 완전 예쁨</p></div>').appendTo('#middle');
+                    $('.pic').attr('src','ㅇ.jpeg').css({
+                        borderRadius:'50%',
+                        height:'30px'
+                    });
+                    $('.profile').css({
+                         display:'inline-block',
+                          marginTop:'70px'
+                    });
+				}
+			};
+		
+			$(window).scroll(function(){
+				
+				var scrollHeight = $(window).scrollTop() +$(window).height();
+				var documentHeight = $(document).height();
+
+				if (scrollHeight == documentHeight){
+					appendDocument();
+				}
+			});
+		
+		});
+        
+	</script>
+	<body>
+        <div id="wrapper">
+        <div id="leftside">
+            <img src="트윗로고.png" id="logo">
+            <table id="menu">
+            <tr>
+                <td><img src="홈.png">홈</td>
+            </tr>
+            <tr>
+                <td><img src="탐색하기.png">탐색하기</td>
+            </tr>
+            <tr>
+                <td><img src="알림.png">알림</td>
+            </tr>
+            <tr>
+                <td><img src="쪽지.png">쪽지</td>
+            </tr>
+            <tr>
+                <td><img src="북마크.png">북마크</td>
+            </tr>
+            <tr>
+                <td><img src="리스트.png">리스트</td>
+            </tr>
+            <tr>
+                <td><img src="프로필.png">프로필</td>
+            </tr>
+            <tr>
+                <td><img src="더보기.png">더보기</td>
+            </tr>
+            </table>
+            <button>트윗하기</button>
+        </div>
+        <div id="middle">
+        <div>
+           <p>홈</p><img src="반짝.png">
+        </div>
+       
+        <div>
+            <div class="box">
+                <img class="pic">
+                <p class="profile">시연</p><p class="profile"></p>@reddfsee.fon 16시간</p><p>LP판 개좋다... 투명한거 완전 예쁨</p>
+            </div>
+            <div class="box">
+                <img class="pic">
+                <p class="profile">시연</p><p class="profile"></p>@reddfsee.fon 16시간</p><p>LP판 개좋다... 투명한거 완전 예쁨</p>
+            </div><div class="box">
+                <img class="pic">
+                <p class="profile">시연</p><p class="profile"></p>@reddfsee.fon 16시간</p><p>LP판 개좋다... 투명한거 완전 예쁨</p>
+            </div><div class="box">
+                <img class="pic">
+                <p class="profile">시연</p><p class="profile"></p>@reddfsee.fon 16시간</p><p>LP판 개좋다... 투명한거 완전 예쁨</p>
+            </div><div class="box">
+                <img class="pic">
+                <p class="profile">시연</p><p class="profile"></p>@reddfsee.fon 16시간</p><p>LP판 개좋다... 투명한거 완전 예쁨</p>
+            </div><div class="box">
+                <img class="pic">
+                <p class="profile">시연</p><p class="profile"></p>@reddfsee.fon 16시간</p><p>LP판 개좋다... 투명한거 완전 예쁨</p>
+            </div><div class="box">
+                <img class="pic">
+                <p class="profile">시연</p><p class="profile"></p>@reddfsee.fon 16시간</p><p>LP판 개좋다... 투명한거 완전 예쁨</p>
+            </div><div class="box">
+                <img class="pic">
+                <p class="profile">시연</p><p class="profile"></p>@reddfsee.fon 16시간</p><p>LP판 개좋다... 투명한거 완전 예쁨</p>
+            </div><div class="box">
+                <img class="pic">
+                <p class="profile">시연</p><p class="profile"></p>@reddfsee.fon 16시간</p><p>LP판 개좋다... 투명한거 완전 예쁨</p>
+            </div><div class="box">
+                <img class="pic">
+                <p class="profile">시연</p><p class="profile"></p>@reddfsee.fon 16시간</p><p>LP판 개좋다... 투명한거 완전 예쁨</p>
+            </div><div class="box">
+                <img class="pic">
+                <p class="profile">시연</p><p class="profile"></p>@reddfsee.fon 16시간</p><p>LP판 개좋다... 투명한거 완전 예쁨</p>
+            </div><div class="box">
+                <img class="pic">
+                <p class="profile">시연</p><p class="profile"></p>@reddfsee.fon 16시간</p><p>LP판 개좋다... 투명한거 완전 예쁨</p>
+            </div>
+        </div>
+         </div>
+         <div id="rightside">
+        <div>
+            <div><img><input type="search" placeholder="트위터 검색"></div>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td>대한민국의 트렌드<a><img src="#"></a></td>
+                </tr>
+                <tr>
+                    <td><a><p>1.트렌드</p><p>전정국 노래</p><a><img src="#"></a></a></td>
+                </tr>
+                <tr>
+                    <td><a><p>2.k-pop 트렌드</p><p>전정국 노래</p><a><img src="#"></a></a></td>
+                </tr>
+                <tr>
+                    <td><a><p>3.트렌드</p><p>전정국 노래</p><a><img src="#"></a></a></td>
+                </tr>
+                <tr>
+                    <td><a><p>4.뮤직 실시간 트렌드</p><p>전정국 노래</p><a><img src="#"></a></a></td>
+                </tr>
+                <tr>
+                    <td><a><p>5.실시간 트렌드</p><p>전정국 노래</p><a><img src="#"></a></a></td>
+                </tr>
+                <tr>
+                    <td><a>더보기</a></td>
+                </tr>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td>팔로우 추천</td>
+                </tr>
+                <tr>
+                    <td><a><img src=""><p>Bybit</p><p>@bybit_official</p></a></td>
+                </tr>
+                <tr>
+                    <td><a><img src=""><p>Bybit</p><p>@bybit_official</p></a></td>
+                </tr>
+                <tr>
+                    <td><a><img src=""><p>Bybit</p><p>@bybit_official</p></a></td>
+                </tr>
+                <tr>
+                    <td><a>더보기</a></td>
+                </tr>
+        </div>
+        <div>
+            <p>이용약관 개인정보처리방침 쿠키정책
+            광고정보 더보기... @2021 Twitter,Inc</p>
+        </div>
+         </div>
+        </div>
+	</body>
+</html>

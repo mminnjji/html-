@@ -1,0 +1,752 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script>
+            $(document).ready(function(){
+
+                //최상단 글씨 색 변화
+                $('#top_header a').hover(function(){
+                    $(this).css('color','white')
+                },function(){
+                    $(this).css('color','lightgray')
+                })
+                $('.lang_turn p').hover(function(){
+                    $(this).css('color','white')
+                },function(){
+                    $(this).css('color','lightgray')
+                })
+
+                //네비게이션 글씨 색 변화
+                $('#header a').hover(function(){
+                    $(this).css('color','#18aa9b')
+                },function(){
+                    $(this).css('color','black')
+                })
+                $('.nav_menu_7').hover(function(){
+                    $(this).css('background-color','#3bafb0')
+                    $('.nav_menu_7 .img1').css('display','none')
+                    $('.nav_menu_7 .img2').css('display','inline-block')
+                },function(){
+                    $(this).css('background-color','#222222')
+                    $('.nav_menu_7 .img1').css('display','inline-block')
+                    $('.nav_menu_7 .img2').css('display','none')
+                })
+                //스크롤시 메인 네비게이션 상단 fix
+                var scrollheight=$(window).scrollTop()
+                    if(scrollheight==0){
+                        $('#header .logo').css({
+                            position:'relative',
+                            top:'20px',
+                            cursor:'pointer',
+                        })
+                        $('#header>.wrapper>div').css({
+                            display:'inline-block',
+                            marginLeft:'25px',
+                            height:'90px',
+                            fontSize:'18px',
+                            fontWeight:'bold',
+                            color:'black'
+                        })
+                        $('#header>.wrapper>div>a').css({
+                            color:'black'
+                        })
+                        $('#header .nav_menu_1').css({
+                            marginLeft:'120px'
+                        })
+                        $('#header .nav_menu_7').css({
+                            position:'relative',
+                            top:'10px',
+                            backgroundColor:'#222222',
+                            width:'60px',
+                            height:'39px',
+                            borderRadius:'20px',
+                            paddingLeft:'18px',
+                            paddingTop:'1px'
+                        })
+                        $('.nav_menu_7 .img2').css({
+                            display:'none'
+                        })
+                    }
+                $(window).scroll(function(){
+                    $('#header').css({
+                        backgroundColor:"white",
+                        opacity:"0.8",
+                        position:"fixed",
+                        top:'0px',
+                        height:'50px',
+                        zIndex:'4',
+                        width:'1590px',
+                        borderBottom:'0.3px solid rgb(231,231,231)'
+                    })
+                    $('#header .logo').css({
+                        width:'135',
+                        height:'26',
+                        top:'10px'
+                    })
+                    $('#header>.wrapper>div').css({
+                        height:'40px',
+                        fontSize:'15px',
+                        marginTop:'-10px'
+                    })
+                    $('.nav_menu_1').css({
+                        marginLeft:'300px'
+                    })
+                    $('.nav_menu_7').css({
+                        top:'13px'
+                    })
+                    var scrollheight=$(window).scrollTop()
+                    if(scrollheight==0){
+                        $('#header').css({
+                            backgroundColor:"white",
+                            opacity:"1",
+                            position:"relative",
+                            top:'0px',
+                            zIndex:'4',
+                            width:'1590px',
+                            border:'none'
+                    })
+                        $('#header .logo').css({
+                            position:'relative',
+                            top:'20px',
+                            width:'270',
+                            height:'52',
+                            cursor:'pointer',
+                        })
+                        $('#header>.wrapper>div').css({
+                            display:'inline-block',
+                            marginLeft:'25px',
+                            height:'90px',
+                            fontSize:'18px',
+                            fontWeight:'bold',
+                            color:'black'
+                        })
+                        $('#header>.wrapper>div>a').css({
+                            color:'black'
+                        })
+                        $('#header .nav_menu_1').css({
+                            marginLeft:'120px'
+                        })
+                        $('#header .nav_menu_7').css({
+                            position:'relative',
+                            top:'10px',
+                            backgroundColor:'#222222',
+                            width:'60px',
+                            height:'39px',
+                            borderRadius:'20px',
+                            paddingLeft:'18px',
+                            paddingTop:'1px'
+                        })
+                        $('.nav_menu_7 .img2').css({
+                            display:'none'
+                        })
+                        $('section').css({
+                            position:'relative',
+                            top:'70px'
+                        })
+                        $('.category_table').css({
+                            top:"30px"
+                        })
+                        $('#footer').css({
+                            position:'relative',
+                            top:'px'
+                        })
+                        
+                    }
+                })
+                //메인 아티클 속성
+                //카테고리 슬라이드
+                
+                $('#article1>div>div').hover(function(){
+                    $('#article>div>div').css('border-radius','5px 5px 0 0')
+                    $('.category_table').stop().animate({
+                        opacity:'1'
+                    },200);
+                },function(){
+                    $('.category_table').stop().animate({
+                        opacity:'0'
+                    },200);
+                    $('#article1>div>div').css('border-radius','5px')
+                });
+                $('.category_table').mouseenter(function(){
+                    $('.category_table').stop().animate({
+                        opacity:'1'
+                    },200);
+                    $('#article1>div>div').css('border-radius','5px 5px 0 0')
+                    var tds = document.querySelectorAll('td')
+                    $(tds[0]).mouseleave(function(){
+                        $('.category_table td').css('border','')
+                    })
+                    $(tds[1]).mouseleave(function(){
+                        $('.category_table td').css('border','')
+                    })
+                    $(tds[2]).mouseleave(function(){
+                        $('.category_table td').css('border','')
+                    })
+                    $(tds[3]).mouseleave(function(){
+                        $('.category_table td').css('border','')
+                    })
+                    $(tds[4]).mouseleave(function(){
+                        $('.category_table td').css('border','')
+                    })
+                    $(tds[5]).mouseleave(function(){
+                        $('.category_table td').css('border','')
+                    })
+                    $(tds[6]).mouseleave(function(){
+                        $('.category_table td').css('border','')
+                    })
+                    
+                    $(tds[0]).mouseenter(function(){
+                        $(tds[0]).css('border','2px solid #18aa9b')
+                        $(tds[1]).css('border-top','2px solid #18aa9b')
+                        
+                    })
+                    $(tds[1]).mouseenter(function(){
+                        $(tds[0]).css('border-bottom','2px solid #18aa9b')
+                        $(tds[1]).css('border','2px solid #18aa9b')
+                        $(tds[2]).css('border-top','2px solid #18aa9b')
+                    })
+                    $(tds[2]).mouseenter(function(){
+                        $(tds[1]).css('border-bottom','2px solid #18aa9b')
+                        $(tds[2]).css('border','2px solid #18aa9b')
+                        $(tds[3]).css('border-top','2px solid #18aa9b')
+                    })
+                    $(tds[3]).mouseenter(function(){
+                        $(tds[2]).css('border-bottom','2px solid #18aa9b')
+                        $(tds[3]).css('border','2px solid #18aa9b')
+                        $(tds[4]).css('border-top','2px solid #18aa9b')
+                    })
+                    $(tds[4]).mouseenter(function(){
+                        $(tds[3]).css('border-bottom','2px solid #18aa9b')
+                        $(tds[4]).css('border','2px solid #18aa9b')
+                        $(tds[5]).css('border-top','2px solid #18aa9b')
+                    })
+                    $(tds[5]).mouseenter(function(){
+                        $(tds[4]).css('border-bottom','2px solid #18aa9b')
+                        $(tds[5]).css('border','2px solid #18aa9b')
+                        $(tds[6]).css('border-top','2px solid #18aa9b')
+                    })
+                    $(tds[6]).mouseenter(function(){
+                        $(tds[5]).css('border-bottom','2px solid #18aa9b')
+                        $(tds[6]).css('border','2px solid #18aa9b')
+                    })
+                })
+              
+                
+                $('.category_table').mouseleave(
+                    function(){
+                        $('.category_table').stop().animate({
+                        opacity:'0'
+                    },200);
+                    $('#article1>div>div').css('border-radius','5px')
+                })
+                $('.info1').hover(function(){
+                    $(this).css('text-decoration','underline black')
+                    $(this).css('cursor','pointer')
+                },function(){
+                    $(this).css('text-decoration','none')
+                })
+
+                //왼쪽 footer 속성
+                $('.first_footer>ul>li').hover(function(){
+                    $(this).css('text-decoration','underline white')
+                },function(){
+                    $(this).css('text-decoration','none')
+                })
+
+                //이미지에 호버할때 사진 변환
+                var changepng =function(srcval){
+                    var num=srcval[6];
+                    newnum=Number(num)+1;
+                    var newsrc='STORE_'+String(newnum)+'.png';
+                    return newsrc;
+                }
+                var backpng =function(srcval){
+                    var num=srcval[6];
+                    newnum=Number(num)-1;
+                    var newsrc='STORE_'+String(newnum)+'.png';
+                    return newsrc;
+                }
+
+                $('#article3 img').hover(function(){
+                    var srcval=$(this).attr('src')
+                    $(this).attr('src',changepng(srcval))
+                },function(){
+                    var srcval=$(this).attr('src')
+                    $(this).attr('src',backpng(srcval))
+                })
+                
+            
+
+            })
+        </script>
+        <style>
+            *{
+                margin:0 auto;
+                padding:0 auto;
+            }
+            body{
+                margin-bottom:-300px;
+            }
+            a{
+                text-decoration:none;
+            }
+            /*전체 wrapper크기*/
+            .wrapper{
+                width:70%;
+                margin-left:15%;
+                
+            }
+            /*헤더*/
+            /*최상단헤더*/
+            #top_header{
+                background-color:#222222;
+                height:40px;
+            }
+            #top_header button{
+                width:50px;
+                height:25px;
+                margin-top:7px;
+                background:white;
+                border:none;
+                border-radius:12.5px;
+                font-size:11px;
+                font-style:bold;
+                cursor:pointer;
+            }
+            #top_header a{
+                color:lightgray;
+                margin-left:10px;
+                font-size:11px;
+            }
+            #top_header .top_header_right{
+                margin-left:80px;
+            }
+            #top_header>.wrapper>a>img{
+                position:relative;
+                top:7px;
+            }
+            .lang_turn{
+                position:relative;
+                top:-15px;
+                display:inline-block;
+                height:40px;
+                background-color:black;
+                width:80px;
+                text-align:center;
+            }
+            .lang_turn>p{
+                color:lightgray;
+                position:relative;
+                top:15px;
+                font-size:11px;
+            }
+            
+            /*로고 및 네비게이션파트*/
+            #header .logo{
+                position:relative;
+                top:20px;
+                cursor:pointer;
+            }
+            #header>.wrapper>div{
+                display:inline-block;
+                margin-left:25px;
+                height:90px;
+                font-size:18px;
+                font-style:bold;
+                color:black
+            }
+            #header>.wrapper>div>a{
+                color:black
+            }
+            #header .nav_menu_1{
+                margin-left:120px;
+            }
+            #header .nav_menu_7{
+                position:relative;
+                top:10px;
+                background-color:#222222;
+                width:60px;
+                height:39px;
+                border-radius:20px;
+                padding-left:18px;
+                padding-top:1px;
+            }
+            .nav_menu_7 .img2{
+                display:none;
+            }
+            hr{
+                position:absolute;
+                top:130px;
+                width:100%;
+                border:0.3px solid rgb(231, 231, 231);
+                z-index:3;
+            }
+            /*article*/
+            /*카테고리~ 줄 메뉴 묶음*/
+            #article1 >div>div{
+                position:relative;
+                left:-460px;
+                background-color: #00afa0;
+                width:200px;
+                height:30px;
+                border-radius:5px;
+                cursor:pointer;
+            }
+            #article1 >div img{
+                margin-left:6px;
+                margin-top:2px;
+                cursor:pointer;
+            }
+            #article1>div>p{
+                display:inline-block;
+                position:relative;
+                left:500px;
+                top:-25px;
+                margin-left:30px;
+                font-size:13px;
+                color:rgb(63, 63, 63);
+                cursor:pointer;
+            }
+            
+            /*카테고리 메뉴설정*/
+            .category_table{
+                top:192px;
+                left:232px;
+                position:absolute;
+                z-index:4;
+                font-size:13px;
+                border-collapse:collapse;
+                opacity:0;
+            }
+            .category_table td{
+                border:1px solid lightgray;
+                background-color:white;
+                width:199px;
+                height:40px;
+                padding-left:5px;
+                box-sizing:border-box;
+            }
+            /*article 2*/
+            #article2>h3{
+                margin-bottom:20px;
+                margin-top:20px;
+            }
+            #article2>div>div{
+                display:inline-block;
+                margin-right:5px;
+            }
+            #article2 .info1{
+                color:black;
+                font-size:12px;
+                margin-bottom:5px;
+                text-align:center;
+                margin-top:5px;
+            }
+            #article2 .info2{
+                font-size:11px;
+                color:gray;
+                text-align:center;
+            }
+            /*article3*/
+            #article3 h3{
+                margin-bottom:10px;
+                margin-top:20px;
+            }
+            #article3 table{
+                border-collapse:collapse;
+                border:0.1px solid lightgray;
+            }
+            #article3 td{
+                width:300px;
+                height:330px;
+            }
+            #article3 p{
+                text-align:center;
+            }
+            #article3 img{
+                position:relative;
+                margin-left:50%;
+                left:-94;
+            }
+            #article3 .info1{
+                margin:5px;
+                font-size:12px;
+                color:black;
+            }
+            #article3 .info2{
+                font-size:11px;
+                color:gray;
+            }
+           
+         
+           
+            
+
+            /*footer*/
+            #footer{
+                position:relative;
+                top:150px;
+                height:250px;
+                background-color:#454545;
+                border-top:#18aa9b 10px solid;
+                margin:0 auto;
+            }
+
+            #footer .footer_layout{
+                list-style:none;
+            }
+            #footer .footer_layout>li{
+                display:inline-block;
+                height:170px;
+            }
+            #footer .footer_layout>li:first-child{
+                width:30%;
+                margin-left:-60px;
+            }
+            #footer .footer_layout>li:nth-child(2){
+                width:40%;
+            }
+            #footer .footer_layout>li:nth-child(3){
+                width:30%;
+            }
+            .footer_layout ul{
+                list-style:none;
+            }
+            .footer_layout .first_footer{
+                border-right:1px solid black
+            }
+            .footer_layout li{
+                margin-bottom:10px;
+            }
+            .footer_layout .second_footer>img{
+                position:relative;
+                top:-30px;
+                left:100px;
+            }
+            .footer_layout .second_footer>div{
+                position:relative;
+                left:25px;
+                top:-10px;
+                width:350px;
+                height:50px;
+                background-color:#f5f5f5;
+            }
+            .footer_layout .second_footer>div>input{
+                position:relative;
+                top:-5px;
+                width:85%;
+                height:90%;
+                background-color:#f5f5f5;
+                border:none;
+                
+            }
+            .footer_layout .second_footer>div>img{
+                position:relative;
+                right:-10px;
+                border:none;
+                top:5px;
+                cursor:pointer;
+            }
+            .footer_layout .third_footer{
+                position:relative;
+                top:20px;
+                left:50px;
+                border-left:1px solid black;
+            }
+            .footer_layout ul>li{
+                color:white;
+                font-size:11px;
+            }
+            .first_footer{
+                cursor:pointer;
+            }
+            .last_footer{
+                background-color:rgb(53, 53, 53);
+                height:50px;
+                color:white;
+                margin-top:-50px;
+                text-align:center;
+                font-size:12px;
+                line-height:50px;
+            }
+        </style>
+    </head>
+    <body>
+        <!--상단~ 로고 파트-->
+        <header>
+            <!--최상단헤더-->
+            <div id="top_header">
+                <div class='wrapper'>
+
+                <button>HOME</button><a href="#">한빛미디어</a><a href="#">한빛미아카데이</a><a href="#">한빛비즈</a><a href="#">한빛라이프</a>
+                <a href="#">한빛에듀</a><a href="#">리얼타임</a href="#"><a href="#">한빛정보교과서</a><a href="#">한빛대관서비스</a>
+
+                <a href="#" class="top_header_right"><img src="mypage.png">마이한빛</a> <a href="#"><img src="membership.png">회원가입</a> 
+                <a href="#"><img src="login.png">로그인</a> <a href="#"><img src="shopping.png">장바구니</a> <a href="#"><div class="lang_turn"><p>ENGLISH ></p></div></a>
+                
+                </div>
+            </div>
+            <!--로고/nav-->
+            
+            <div id="header">
+                <div class='wrapper'>
+                <a href="한빛출판.html"><img class="logo" src="logo.png"></a> <div class="nav_menu_1"><a href="한빛출판_BRAND.html">BRAND</a></div> <div class="nav_menu_2"><a href="한빛출판_CHANNEL.html">CHANNEL.H</a></div>
+                <div class="nav_menu_3"><a href="#">STORE</a></div> <div class="nav_menu_4"><a href="한빛출판_SUPPORT.html">SUPPORT</a></div>
+                <div class="nav_menu_5"><a href="한빛출판_EVENT.html">EVENT</a></div> <div class="nav_menu_6"><a href="#">RIGHTS</a></div>
+                <div class="nav_menu_7"><a href="#"><img class="img1" src="seasrch.png"></a><a href="#"><img class="img2" src="search_hover.png"></a></div>
+            </div>
+        </div>
+        </div>
+        </header>
+        <hr>
+        <!--전체 article-->
+        <section>
+            <article id="article1">
+                <div>
+                    <div><img src="카테고리.png"></div>
+                    <p>새로나온책</p><p>|</p><p>기획도서</p><p>|</p><p>베스트셀러</p><p>|</p><p>전체도서목록</p><p>|</p><p>시리즈</p>
+                </div>
+                <table class="category_table" border="1">
+                    <tr><td>- IT/모바일</td></tr>
+                    <tr><td>- MAKE</td></tr>
+                    <tr><td>- IT 활용</td></tr>
+                    <tr><td>- 대학교재</td></tr>
+                    <tr><td>- 입문서</td></tr>
+                    <tr><td>- 경제/경영/생활</td></tr>
+                    <tr><td>- 유아/어린이/초등</td></tr>
+                </table>
+                <table>
+                    <tr><td></td></tr>
+                </table>
+            </article>
+            <div class="wrapper">
+                <article id="article2">
+                    <h3>새로나온책</h3>
+                        <div>
+                            <div><img src="book_1.png">
+                            <p class="info1">
+                                혼자 공부하는 머신러닝+딥러닝
+                            </p>
+                            <p class="info2">박해선</p>
+                            </div>
+                            <div><img src="book_2.png">
+                                <p class="info1">
+                                    혼자 공부하는 머신러닝+딥러닝
+                                </p>
+                                <p class="info2">박해선</p>
+                            </div>
+                            <div><img src="book_3.png">
+                                <p class="info1">
+                                    혼자 공부하는 머신러닝+딥러닝
+                                </p>
+                                <p class="info2">박해선</p>
+                            </div>
+                            <div><img src="book_4.png">
+                                <p class="info1">
+                                    혼자 공부하는 머신러닝+딥러닝
+                                </p>
+                                <p class="info2">박해선</p>
+                            </div>
+                            <div><img src="book_5.png">
+                                <p class="info1">
+                                    혼자 공부하는 머신러닝+딥러닝
+                                </p>
+                                <p class="info2">박해선</p>
+                            </div>
+                        </div>
+                </article>
+            <article id="article3">
+                <h3>예약도서</h3>
+                <div>
+                    <img src="STORE_1.png">
+                    <p class="info1">
+                        365 부모 말하기 연습 일력<br>(스프링북)
+                    </p>
+                    <p class="info2">출간 예정 일자 : 21-12-01</p>
+                </div>
+            </article>
+            <article id="article3">
+                <h3>베스트셀러</h3>
+                <table border="1">
+                    <tr>
+                        <td>
+                            <img src="STORE_3.png">
+                            <p class="info1">
+                                혼자 공부하는 머신러닝+딥러닝
+                            </p>
+                            <p class="info2">박해선</p>
+                        </td>
+                        <td>
+                            <img src="STORE_4.png">
+                            <p class="info1">
+                                회사에서 바로 통하는 실무 엑셀<br>+파워포인트+워드&한글
+                            </p>
+                            <p class="info2">전미진 , 이화진 , 신면철</p>
+                        </td>
+                        <td>
+                            <img src="STORE_5.png">
+                            <p class="info1">
+                                IT CookBook, 데이터베이스 개론<br>(2판)
+                            </p>
+                            <p class="info2">김연희</p>
+                        </td>
+                        <td>
+                            <img src="STORE_6.png">
+                            <p class="info1">
+                                IT CookBook, 시스템 프로그래밍: <br>리눅스&유닉스
+                            </p>
+                            <p class="info2">이종원</p>
+                        </td>
+                        <td>
+                            <img src="STORE_1.png">
+                            <p class="info1">
+                                눈떠보니 선진국
+                            </p>
+                            <p class="info2">박태웅</p>
+                        </td>
+                        
+                    </tr>
+                </table>
+            </article>
+        </div>
+        </section>
+
+
+        <footer id="footer">
+            <div class='wrapper'>
+            <ul class="footer_layout">
+                <li class="first_footer">
+                    <ul>
+                        <li>회사소개(KOR/ENG)/회사약도</li>
+                        <li>기획 및 원고모집</li>
+                        <li>채용/입사지원</li>
+                        <li>FOREIGN RIGHTS</li>
+                        <li>이용약관/개인정보처리방침</li>
+                        <li>사이트맵</li>
+                    </ul>
+                </li>
+                <li class="second_footer">
+                    <img src="search_bar.png">
+                    <div>
+                        <input><img src="search_lense.png">
+                    </div>
+                </li>
+                <li class="third_footer">
+                    <ul>
+                        <li>한빛미디어/한빛아카데미/한빛비즈</li>
+                        <li>(03784)서울 연희동 성산대로 78</li>
+                        <li>EMAIL:support@hanbit.co.kr</li>
+                        <li>대표이사:김태헌</li>
+                        <li>사업자등록번호 : 220-51-82</li>
+                        <li>통신판매업신고:2017 서울서대문 2019</li>
+                        <li>호스팅제공자:누리호스팅</li>
+                    </ul>
+                </li>
+            </ul>
+            
+        </div>
+        <div class="last_footer">©1993-2021 Hanbit Publishing Network, Inc. All rights reserved.</div>
+        </footer>
+        
+    </body>
+</html>

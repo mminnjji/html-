@@ -1,0 +1,34 @@
+<html>
+<head>
+	<title>jQuery Basic</title>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script>	//이벤트를 연결합니다.
+		$(document).ready(function(){
+			//이벤트를 연결합니다. 
+			$('#box').css({
+				width:200,
+				height:200,
+				background:'red'
+			}).on('click',function(){
+				$(this).css({
+					backgroundImage:'url(dddd.png)',
+					backgroundSize:'100% 100%',
+					backgroundRepeat:'no-repeat'
+				});
+			}).on('mouseenter',function(){
+				$(this).css({
+					backgroundImage:'url(dddk.png)',
+					backgroundSize:'100% 100%',
+					backgroundRepeat:'no-repeat'
+				});
+			}).on('mouseleave',function(){
+				$(this).css('background','red');
+			});
+		});
+	</script>
+</head>
+	<body>
+		<div id="box"></div>
+	</body>
+</html>

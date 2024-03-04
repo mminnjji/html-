@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+ 
+    window.onload = function() {
+        console.log("");
+        console.log("[window onload] : [start]");
+        console.log("");
+    };
+
+
+
+    /* [top 스크롤 이벤트 함수 정의] */
+    function top_scroll_move(){
+        console.log("");
+        console.log("[top_scroll_move] : [start]");
+        console.log("");
+
+        // 스크롤을 이동할 레이아웃 아이디 지정
+        var tagId = document.getElementById("content_container");
+
+        // [맨 상단으로 스크롤 이동 실시]
+        tagId.scrollTop = 0;
+    };
+
+
+
+    /* [bottom 스크롤 이벤트 함수 정의] */
+    function bottom_scroll_move(){
+        console.log("");
+        console.log("[bottom_scroll_move] : [start]");
+        console.log("");
+
+        // 스크롤을 이동할 레이아웃 아이디 지정
+        var tagId = document.getElementById("content_container");
+
+        // [맨 하단으로 스크롤 이동 실시]
+        tagId.scrollTop = tagId.scrollHeight;
+    };
+            
+</script>
+​</head>
+
+​
+
+<body>
+
+<!-- scroll layout -->
+<div style="width: 90%; height: 20%; margin: 0 auto; padding: 0;
+    float: top; position: relative; top: 5%; left: 0%;">
+<!-- top scroll -->
+<div id="top_scroll"
+    style="width: 50%; height: 100%; margin: 0 auto; padding: 0; background-color: #000;
+        float: left; position: relative; top: 0%; left: 0%; display: table;"
+    onclick="top_scroll_move();">
+    <!-- top_scroll_move : 이벤트 등록 -->
+
+    <p style="display: table-cell; text-align: center; vertical-align: middle; 
+        color: #fff; font-size: 150%; font-weight: bold;">
+        TOP 이동                
+    </p>        
+</div>
+
+
+<!-- bottom scroll -->
+<div id="top_scroll"
+    style="width: 50%; height: 100%; margin: 0 auto; padding: 0; background-color: #444;
+        float: left; position: relative; top: 0%; left: 0%; display: table;"
+    onclick="bottom_scroll_move();">
+    <!-- bottom_scroll_move : 이벤트 등록 -->
+
+    <p style="display: table-cell; text-align: center; vertical-align: middle; 
+        color: #fff; font-size: 150%; font-weight: bold;">             
+    </p>
+</div>
+</div>
+
+
+
+
+
+
+<!-- content layout -->
+<div id = "content_container"
+style = "width: 90%; height: 50%; margin: 0 auto; padding: 0; border: 1px solid #000; 
+    float: top; position: relative; top: 5%; left: 0%;
+    overflow: auto;">
+    <!-- overflow: auto; : 레이아웃 영역 초과 시 오버플로우 스크롤 처리 -->
+
+<!-- 자식 레이아웃 -->
+<div style="width: 100%; height: 70%; background-color: #f00;
+        float: top; position: relative; top: 0%; left: 0%; display: table;">                
+    <p style="display: table-cell; text-align: center; vertical-align: middle; 
+        color: #fff; font-size: 150%; font-weight: bold;">
+        ONE                
+    </p>
+</div>
+
+
+<!-- 자식 레이아웃 -->
+<div style="width: 100%; height: 70%; background-color: #0f0;
+        float: top; position: relative; top: 0%; left: 0%; display: table;">                
+    <p style="display: table-cell; text-align: center; vertical-align: middle; 
+        color: #fff; font-size: 150%; font-weight: bold;">
+        TWO
+    </p>
+</div>
+
+
+<!-- 자식 레이아웃 -->
+<div style="width: 100%; height: 70%; background-color: #00f;
+        float: top; position: relative; top: 0%; left: 0%; display: table;">                
+    <p style="display: table-cell; text-align: center; vertical-align: middle; 
+        color: #fff; font-size: 150%; font-weight: bold;">
+        THREE                
+    </p>
+</div>
+    
+</div>
+
+</body>
+</html>

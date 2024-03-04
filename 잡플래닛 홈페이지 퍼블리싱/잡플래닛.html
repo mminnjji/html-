@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="잡플래닛.css">
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script>
+            $(document).ready(function(){
+                $(window).scroll(function(){
+                    $('#header_1').html('<a href="잡플래닛.html"><img src="logo.png"></a><div id="wrapper"><div class="header_2_wrapper"><div class="header_2_searchbar"><input placeholder="기업,채용공고를 검색해보세요"><a href="#"><img src="search.png"></a></div> <div></p></div></div></div>')
+                    $('#header_1').css({
+                        boxShadow:'2px 2px 40px -28px'
+                    })
+                    var scrollheight=$(window).scrollTop()
+                    if(scrollheight==0){
+                        $('#header_1').html('<a href="잡플래닛.html"><img src="logo.png"></a><a href="#"><div class="rank">기업랭킹</div></a><a href="#"><div>채용</div></a><a href="#"><div>뉴스</div></a><a href="#"><div>연봉</div></a><a href="#"><div><img class="membership" src="membership.png"></div></a><a href="#" class="profile"><div><img src="bell.png"></div></a><a href="#"><div><img src="pen.png"></div></a><a href="#" class="profile2"><div><img src="profile.png"></div></a><div class="verticalline"></div><a href="#" class="header_right"><div>제휴대학서비스</div></a>')
+                        $('#header_1').css({
+                        boxShadow:'0px 0px 0px 0px',
+                        zIndex:'4'
+                    })
+                    }
+                })
+                //기업랭킹 슬라이드
+                $('#header_2_slider,.rank').hover(function(){
+                    $('#header_2_slider').stop().animate({
+                        height:'600px'
+                    },200)
+                    $('#header_2_slider').css({
+                        borderTop:'0.1px solid rgb(228, 228, 228)'
+                    })
+                    
+                },function(){
+                    $('#header_2_slider').stop().animate({
+                        height:'0px',
+                        borderTop:'0px)'
+                    },200)
+                    $('#header_2_slider').css({
+                        borderTop:'0.1px solid rgb(228, 228, 228 , 0)'
+                    })
+                })
+                //이미지 커지게 
+                $('#imageframe1,.imageframe2,.imageframe3,.imageframe4,.imageframe5').hover(function(){
+
+                    $(this).find('.imagedata').stop().animate({
+                        width:'104%',
+                        height:'104%',
+                        marginLeft:'-2%',
+                        marginTop:'-2%'
+                    },100)
+                    
+                },function(){
+                    $(this).find('.imagedata').stop().animate({
+                        width:'100%',
+                        height:'100%',
+                        marginLeft:'0',
+                        marginTop:'0'
+                    },100)
+                })
+
+                //aside 1에 underline 되도록
+                $('.imageframe2').hover(function(){
+                    value=$(this).find('img').attr('src')
+                    if(value[7]=='2'){
+                        $(this).addClass('first')
+                    }
+                    if(value[7]=='3'){
+                        $(this).addClass('second')
+                    }
+                    $('.first+h2,.second+h2').css('text-decoration','underline')
+                },function(){
+                    $('h2').css('text-decoration','none')
+                    $(this).removeClass('first')
+                    $(this).removeClass('second')
+                })
+
+                //article 2에 underline 되도록
+                $('.imageframe3').hover(function(){
+                    value=$(this).find('img').attr('src')
+                    if(value[7]=='4'){
+                        $(this).addClass('first')
+                    }
+                    if(value[7]=='5'){
+                        $(this).addClass('second')
+                    }
+                    $('.first+div>h2,.second+div>h2').css('text-decoration','underline')
+                },function(){
+                    $('h2').css('text-decoration','none')
+                    $(this).removeClass('first')
+                    $(this).removeClass('second')
+                })
+                $('#article_2 h2').hover(function(){
+                    $(this).css('text-decoration','underline')
+
+                },function(){
+                    $(this).css('text-decoration','none')
+                })
+
+                //article 4에 underline
+                $('.article_4_list li').hover(function(){
+                    $(this).css('text-decoration','underline')
+                },
+                function(){
+                    $(this).css('text-decoration','none')
+                })
+                var count1 = 0;
+                $('.right').click(function(){
+                    if(count1<1500){
+                        count1=count1+300;
+                        $('.videoslide').animate({
+                            left:-1*count1
+                        })
+                    }
+                })
+                $('.left').click(function(){
+                    if(count1>0){
+                        count1=count1-300;
+                        $('.videoslide').animate({
+                            left:-1*count1
+                        })
+                    }
+                })
+
+
+            })
+
+        </script>
+    </head>
+    <body>
+        <!--고정헤더-->
+        <header id="header_1">
+            <a href="잡플래닛.html"><img src="logo.png"></a><a href="#"><div class="rank">기업랭킹</div></a><a href="#"><div>채용</div></a><a href="#"><div>뉴스</div></a><a href="#"><div>연봉</div></a><a href="#"><div><img class="membership" src="membership.png"></div></a>
+            <a href="#" class="profile"><div><img src="bell.png"></div></a><a href="#"><div><img src="pen.png"></div></a><a href="#" class="profile2"><div><img src="profile.png"></div></a><div class="verticalline"></div><a href="#" class="header_right"><div>제휴대학서비스</div></a>
+        </header>
+        <!--이동식~검색창 fix-->
+        <header id="header_2">
+            <div id="wrapper">
+                <div class="header_2_wrapper"><div class="header_2_searchbar"><input placeholder="기업,채용공고를 검색해보세요"><a href="#"><img src="search.png"></a></div> <div><p></p></div>
+            </div>
+            </div>
+            <div id="header_2_slider">
+                <div class="slider_left_aside">
+                    <div>기업랭킹홈<button>바로가기 ></button></div>
+                    <div>
+                        <div>
+                            <p>실시간 급상승 검색 기업</p>
+                            <p>2021.12.08 02:30 기준</p>
+                        </div>
+                        <ol>
+                            <li>전남대학교 산학협력단</li>
+                            <li>전남대학교 산학협력단</li>
+                            <li>전남대학교 산학협력단</li>
+                            <li>전남대학교 산학협력단</li>
+                            <li>전남대학교 산학협력단</li>
+                            <li>전남대학교 산학협력단</li>
+                            <li>전남대학교 산학협력단</li>
+                            <li>전남대학교 산학협력단</li>
+                            <li>전남대학교 산학협력단</li>
+                            <li>전남대학교 산학협력단</li>
+                        </ol>
+                    </div>
+                </div>
+                <table class="slider_center">
+                    <tr>
+                        <td>
+                            <h3>IT/웹/통신</h3>    
+                            <ul>
+                                <li><button>추천</button>메이슨인텔리...</li>
+                                <li><a href="#">쿠팡(주)</a><p>3765개 리뷰</p></li>
+                                <li><a href="#">(주)티몬</a><p>765개 리뷰</p></li>
+                                <li><a href="#">(주)위메프</a><p>65개 리뷰</p></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <h3>서비스업</h3>    
+                            <ul>
+                                <li><button>추천</button>세영정보통신(주)</li>
+                                <li><a href="#">휴먼코아(주)</a><p>3765개 리뷰</p></li>
+                                <li><a href="#">(주)대산</a><p>765개 리뷰</p></li>
+                                <li><a href="#">(주)모본구스</a><p>65개 리뷰</p></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <h3>미디어/디자인</h3>    
+                            <ul>
+                                <li><button>추천</button>한솔아동교육...</li>
+                                <li><a href="#">대성(주)</a><p>3765개 리뷰</p></li>
+                                <li><a href="#">종로교육</a><p>765개 리뷰</p></li>
+                                <li><a href="#">메가스터디(주)</a><p>65개 리뷰</p></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <h3>의료/제약/복지</h3>    
+                            <ul>
+                                <li><button>추천</button>메이슨인텔리...</li>
+                                <li><a href="#">쿠팡(주)</a><p>3765개 리뷰</p></li>
+                                <li><a href="#">(주)티몬</a><p>765개 리뷰</p></li>
+                                <li><a href="#">(주)위메프</a><p>65개 리뷰</p></li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h3>건설업</h3>    
+                            <ul>
+                                <li><button>추천</button>세영정보통신(주)</li>
+                                <li><a href="#">삼성전자</a><p>3765개 리뷰</p></li>
+                                <li><a href="#">LG디스플레이</a><p>765개 리뷰</p></li>
+                                <li><a href="#">LG전자</a><p>65개 리뷰</p></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <h3>유통/무역/운송</h3>    
+                            <ul>
+                                <li><button>추천</button>메이슨인텔리...</li>
+                                <li><a href="#">쿠팡(주)</a><p>3765개 리뷰</p></li>
+                                <li><a href="#">(주)티몬</a><p>765개 리뷰</p></li>
+                                <li><a href="#">(주)위메프</a><p>65개 리뷰</p></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <h3>은행/금융업</h3>    
+                            <ul>
+                                <li><button>추천</button>한솔아동교육...</li>
+                                <li><a href="#">대성(주)</a><p>3765개 리뷰</p></li>
+                                <li><a href="#">종로교육</a><p>765개 리뷰</p></li>
+                                <li><a href="#">메가스터디(주)</a><p>65개 리뷰</p></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <h3>기관/협회</h3>    
+                            <ul>
+                                <li><button>추천</button>한국아이엠에스...</li>
+                                <li><a href="#">한국투자(주)</a><p>3765개 리뷰</p></li>
+                                <li><a href="#">삼일회계법인</a><p>765개 리뷰</p></li>
+                                <li><a href="#">한영회계법인</a><p>65개 리뷰</p></li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h3>교육업</h3>    
+                            <ul>
+                                <li><button>추천</button>한솔아동교육...</li>
+                                <li><a href="#">대성(주)</a><p>3765개 리뷰</p></li>
+                                <li><a href="#">종로교육</a><p>765개 리뷰</p></li>
+                                <li><a href="#">메가스터디(주)</a><p>65개 리뷰</p></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <h3>제조/화학</h3>    
+                            <ul>
+                                <li><button>추천</button>세영정보통신(주)</li>
+                                <li><a href="#">삼성전자</a><p>3765개 리뷰</p></li>
+                                <li><a href="#">LG디스플레이</a><p>765개 리뷰</p></li>
+                                <li><a href="#">LG전자</a><p>65개 리뷰</p></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <h3>워라벨 실천 기업</h3>    
+                            <ul>
+                                <li><button>추천</button>세영정보통신(주)</li>
+                                <li><a href="#">위노레드</a><p>3765개 리뷰</p></li>
+                                <li><a href="#">아이씨비</a><p>765개 리뷰</p></li>
+                                <li><a href="#">(주)쎌메이드</a><p>65개 리뷰</p></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <h3>대한상공회의소</h3>    
+                            <ul>
+                                <li><button>추천</button>세영정보통신(주)</li>
+                                <li><a href="#">휴먼코아(주)</a><p>3765개 리뷰</p></li>
+                                <li><a href="#">(주)대산</a><p>765개 리뷰</p></li>
+                                <li><a href="#">(주)모본구스</a><p>65개 리뷰</p></li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+                <img class="slider_right_aside" src="slider_ad.png">
+            </div>
+
+        </header>
+        <!--아티클헤더-->
+        <section>
+            <div id="wrapper">
+                <div class="article_top">
+                    <div>홈</div><div>뉴스</div><div>영상</div><a href="잡플래닛.html"><img src="article_logo.png"></a>
+                </div>
+                <!--왼쪽 aside 1-->
+                <article id="article_1">
+                    <a href="#">
+                        <div id="imageframe1">
+                            <img class="imagedata" src="main_ad.png">
+                        </div>
+                        <button>오늘의 헤드라인</button> 
+                        <div class="article_1_info">
+                            <h1>다른 회사에 죽어도 못보내... 인사...</h1>
+                            <p>최근 이상한 소문을 들었습니다. 재직 중 이직을 시도하면 옮기려는 회사 인사팀에서 다니고 있는 회사 인사팀에 바로 연락을 준다고요. 실제로 어떤분은 채용이 결정되면 떠나기로 했는데 못가신 분도 있어요.</p>
+                        </div>
+                    </a>
+                </article>
+                <!--오른쪽 aside1-->
+                <aside id="aside_1">
+                    <ul>
+                        <a href="#">
+                            <li>
+                                <div class="imageframe2">
+                                    <img class="imagedata" src="imgdata2.png">
+                                </div><h2>기부금은 100% 기부에만 사용... 가능해?</h2>
+                                <p>SK행복나눔재단'곧장기부팀'의 이보인 전 략기획팀 팀장(왼쪽)과 박은실 매니저(오...</p>
+                                <p>컴퍼니 타임스</p>
+                            </li>
+                        </a>
+                        <a href="#">
+                            <li>
+                                <div class="imageframe2">
+                                    <img class="imagedata" src="imgdata3.png">
+                                </div><h2>일하기 좋은 클라우드 기업 BEST20</h2>
+                                <p>요즘 IT업계에서는 클라우드가 대세다. 코 로나 여파로 많은 기업들이 비대면 환경을...</p>
+                                <p>컴퍼니 타임스</p>
+                            </li>
+                        </a>
+                    </ul>
+                </aside>
+                <!--왼쪽 aside 2-->
+                <article id="article_2">
+                    <ul>
+                        <a href="#">
+                            <li>
+                                <div class="imageframe3"><img src="imgdata4.png" class="imagedata"></div>
+                                <div class="article_2_info"><h2 data="4">흡연자/비흡연자, 직장에서 '이것' 걱정한다.</h2>
+                                <p>잡플래닛이 지난 9월부터 10월까지 회사원 3,525명을 대상으로 사내 흡연문화 실태에 대한 설문조사 진행 결과, 동료의 흡연으로 인한 냄새가 비흡연...</p>
+                                <p>컴퍼니 타임스</p>
+                                </div>
+                            </li>
+                        </a>
+                        <a href="#" class="up">
+                            <li>
+                                <div class="imageframe3"><img src="imgdata5.png" class="imagedata"></div>
+                                <div class="article_2_info"><h2 data="5">장동민도 인정한 다니고 싶은 회사?!</h2>
+                                <p>Youtube'9시 내고향'Ep.10 | 장동민도 인정한 다니고 싶은 회사?!(feat.사촌형네 회사라고 리뷰 읽어보는ㅋㅋㅋ)<이벤트참여바로가기>"대한민국 모든...</p>
+                                <p>9시 내고향</p></div>
+                            </li>
+                        </a>
+                    </ul>
+                </article>
+                <!--오른쪽 aside2-->
+                <aside id="aside_2">
+                    <a href="#">
+                        <div>
+                            <h5>기업 이슈를 제보해주세요.</h5><img src="issue.png"><h6>제보하기 > </h6>
+                        </div>
+                    </a>
+                </aside>
+                <!--메인광고1-->
+                <img id="sub_ad" src="sub_ad.png">
+                <!--메인광고2-->
+                <div id="article_3">
+                    <h3>놓치면 후회할 뉴스</h3>
+                    <hr class="hr1"><hr class="hr2">
+                    <ul>
+                        <a href="#"><li><img src="imgdata6.png"><p>삼성 면접 준비법 총정리 (feat.경험자)</p></li></a>
+                        <a href="#"><li><img src="imgdata7.png"><p>넷마블 면접 앞뒀다면 확인할 5가지</p></li></a>
+                        <a href="#"><li><img src="imgdata6.png"><p>일하기 좋은 프로 야구단 BEST5</p></li></a>
+                        <a href="#"><li><img src="imgdata7.png"><p>장그래님, 장대리님 직장 내 호칭은?</p></li></a>
+                        <a href="#"><li><img src="imgdata6.png"><p>인턴은 구직활동하면 안되는건가요?</p></li></a>
+                    </ul>
+                </div>
+                <!--왼쪽 aside3-->
+                <article id="article_4">
+                    <ul>
+                        <li><h3>기업 핫 뉴스</h3>
+                            <a href="#"><div><div class="imageframe4"><img class="imagedata" src="imgdata9.png"></div><img src="imgdata8.png"><p>컴퍼티 타임스</p><p>일하기 좋은 클라우드 기업 BEST 20</p></div></a>
+                            <ul class="article_4_list">
+                                <li><a href="#">라틴어 수업 한동일 작가가 말하는 삶과 믿음</a></li>
+                                <li><a href="#">고용지원금은 받고 싶고 월급은 주기 싫고?</a></li>
+                                <li><a href="#">일하기 좋은 카드사 TOP8</a></li>
+                                <li><a href="#">인턴하면서 구직활동 하지 말라는데.. 이래도 돼?</a></li>
+                                <li><a href="#">일하기 좋은 프로야구단 BEST5</a></li>
+                            </ul>
+                        </li>
+                        <li><h3>지금 기업 현장취재</h3>
+                            <a href="#"><div><div class="imageframe4"><img class="imagedata" src="imgdata10.png"></div><img src="imgdata8.png"><p>CJ 대한통운</p><p>물류회사에 연구소? 사람같은 로봇 연구</p></div></a>
+                            <ul class="article_4_list">
+                                <li><a href="#"><img src="imgdata12.png">"뉴워커로 AI 학습 데이터를 지원합니다!"</a><a>(주)인크루트</a></li>
+                                <li><a href="#"><img src="imgdata13.png">"'나'라는 브랜드를 만들어가다"</a><a>(주)케이뱅크</a></li>
+                                <li><a href="#"><img src="imgdata12.png">"해외 마케팅 경험, 페르소나라서 중요하죠!"</a><a>(주)페르소나</a></li>
+                                <li><a href="#"><img src="imgdata13.png">"베트남에서 일하는 UI UX 디자이너 입니다"</a><a>고영테크놀..</a></li>
+                                <li><a href="#"><img src="imgdata12.png">"개발자의 균형있는 성장을 고민합니다"</a><a>(주)통로이미지</a></li>
+                            </ul>
+                        </li>
+                        <li><h3>놓치기 아까운 정보 PICK</h3>
+                            <a href="#"><div><div class="imageframe4"><img class="imagedata" src="imgdata11.png"></div><img src="imgdata8.png"><p>컴퍼니 타임스</p><p>다른 회사 죽어도 못보내... 인사팀의 짬짜미?</p></div></a>
+                            <ul class="article_4_list">
+                                <li><a href="#"><img src="imgdata12.png">KT&G 자소서 마감 임박 어떻게 쓰지?</a><a>컴퍼니타임스</a></li>
+                                <li><a href="#"><img src="imgdata13.png">기부금은 100% 기부에만 사용.. 어떻게?</a><a>컴퍼니타임스</a></li>
+                                <li><a href="#"><img src="imgdata12.png">면접관이 물었다. 다른회사도 지원했어요?</a><a>컴퍼니타임스</a></li>
+                                <li><a href="#"><img src="imgdata13.png">인사담당자 A씨의 직장생활 필승법</a><a>컴퍼니타임스</a></li>
+                                <li><a href="#"><img src="imgdata12.png">넷마블 면접 앞뒀다면 알아둬야할 5가지 </a><a>컴퍼니타임스</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </article>
+                    
+                <!--오른쪽 asdie3-->
+                <div id="aside_3">
+                    <div>뉴스</div><div>영상</div>
+                    <div>
+                        <ul>
+                            <li><a href="#"><img>면접관이 물었다."다른회사도 지원했어요?"</a></li>
+                            <li><a href="#"><img>인사담당자 A씨의 직장생활 필승법</a></li>
+                        </ul>
+                        <ol>
+                            <li><a href="#"><img>면접관이 물었다."다른회사도 지원했어요?"</a></li>
+                            <li><a href="#"><img>인사담당자 A씨의 직장생활 필승법</a></li>
+                            <li><a href="#"><img>KT&G 자소서 마감 임박 어떻게 쓰지?</a></li>
+                            <li><a href="#"><img>기부금은 100% 기부에만 사용.. 어떻게?</a></li>
+                            <li><a href="#"><img>넷마블 면접 앞뒀다면 알아둬야할 5가지 "</a></li>
+                            <li><a href="#"><img>인턴하면서 구직활동 하지 말라는데.. 이래도 돼?</a></li>
+                            <li><a href="#"><img>면접관이 물었다."다른회사도 지원했어요?"</a></li>
+                            <li><a href="#"><img>일하기 좋은 카드사 TOP8</a></li>
+                            <li><a href="#"><img>라틴어 수업 한동일 작가가 말하는 삶과 믿음</a></li>
+                            <li><a href="#"><img>인사담당자 A씨의 직장생활 필승법</a></li>
+                        </ol>
+                    </div>
+                    <div>
+                        <a href="#"><div><img><p>1</p><p>동갑내기 반말토크 EP08 공기업 어디까지...</p></div></a>
+                        <a href="#"><div><img><p>1</p><p>동갑내기 반말토크 EP08 공기업 어디까지...</p></div></a>
+                        <a href="#"><div><img><p>1</p><p>동갑내기 반말토크 EP08 공기업 어디까지...</p></div></a>
+                        <a href="#"><div><img><p>1</p><p>동갑내기 반말토크 EP08 공기업 어디까지...</p></div></a>
+                        <a href="#"><div><img><p>1</p><p>동갑내기 반말토크 EP08 공기업 어디까지...</p></div></a>
+                        <a href="#"><div><img><p>1</p><p>동갑내기 반말토크 EP08 공기업 어디까지...</p></div></a>
+                        <a href="#"><div><img><p>1</p><p>동갑내기 반말토크 EP08 공기업 어디까지...</p></div></a>
+                        <a href="#"><div><img><p>1</p><p>동갑내기 반말토크 EP08 공기업 어디까지...</p></div></a>
+                        <a href="#"><div><img><p>1</p><p>동갑내기 반말토크 EP08 공기업 어디까지...</p></div></a>
+                        <a href="#"><div><img><p>1</p><p>동갑내기 반말토크 EP08 공기업 어디까지...</p></div></a>
+                    </div>
+                </div>
+                <!--왼쪽 aside3-->
+                <article id="article_5">
+                    <h3>NEW! 신규동영상</h3>
+                    <div class="videoslider">
+                        <div class="videoslide">
+                            <div>
+                                <div class="imageframe5"><img class="imagedata" src="imgdata4.png"></div>
+                                <img src="play-button.png"><button>00:22:07</button>
+                                <h3>동갑내기 반말토크 EP_8 공기업 어디까지 알고있니</h3>
+                                <button>#취업</button><button>#공기업</button>
+                            </div>
+                            <div>
+                                <div class="imageframe5"><img class="imagedata" src="imgdata4.png"></div>
+                                <img src="play-button.png"><button>00:22:07</button>
+                                <h3>동갑내기 반말토크 EP_8 공기업 어디까지 알고있니</h3>
+                                <button>#취업</button><button>#공기업</button>
+                            </div>
+                            <div>
+                                <div class="imageframe5"><img class="imagedata" src="imgdata4.png"></div>
+                                <img src="play-button.png"><button>00:22:07</button>
+                                <h3>동갑내기 반말토크 EP_8 공기업 어디까지 알고있니</h3>
+                                <button>#취업</button><button>#공기업</button>
+                            </div>
+                            <div>
+                                <div class="imageframe5"><img class="imagedata" src="imgdata4.png"></div>
+                                <img src="play-button.png"><button>00:22:07</button>
+                                <h3>동갑내기 반말토크 EP_8 공기업 어디까지 알고있니</h3>
+                                <button>#취업</button><button>#공기업</button>
+                            </div>
+                            <div>
+                                <div class="imageframe5"><img class="imagedata" src="imgdata4.png"></div>
+                                <img src="play-button.png"><button>00:22:07</button>
+                                <h3>동갑내기 반말토크 EP_8 공기업 어디까지 알고있니</h3>
+                                <button>#취업</button><button>#공기업</button>
+                            </div>
+                            <div>
+                                <div class="imageframe5"><img class="imagedata" src="imgdata4.png"></div>
+                                <img src="play-button.png"><button>00:22:07</button>
+                                <h3>동갑내기 반말토크 EP_8 공기업 어디까지 알고있니</h3>
+                                <button>#취업</button><button>#공기업</button>
+                            </div>
+                            <div>
+                                <div class="imageframe5"><img class="imagedata" src="imgdata4.png"></div>
+                                <img src="play-button.png"><button>00:22:07</button>
+                                <h3>동갑내기 반말토크 EP_8 공기업 어디까지 알고있니</h3>
+                                <button>#취업</button><button>#공기업</button>
+                            </div>
+                            <div>
+                                <div class="imageframe5"><img class="imagedata" src="imgdata4.png"></div>
+                                <img src="play-button.png"><button>00:22:07</button>
+                                <h3>동갑내기 반말토크 EP_8 공기업 어디까지 알고있니</h3>
+                                <button>#취업</button><button>#공기업</button>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="left-arrow.png" class="left"><img src="right-arrow.png" class="right"> 
+                </article>
+                <!--오른쪽 aside4-->
+            </div>
+        </section>
+        <!--footer-->
+    </body>
+</html>

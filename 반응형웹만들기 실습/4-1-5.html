@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+
+<style>
+*{margin:0; padding:0;}
+
+#wrap{
+display:flex;
+width:90%;
+justify-content:space-around;
+height:500px;
+margin:0 auto;
+border:4px solid #000;
+}
+
+#wrap div{
+width:20%;
+}
+
+#wrap div:first-child{
+background:red;
+}
+#wrap div:first-child>table{
+width:100%;
+border-collapse:collapse;
+}
+#wrap div:first-child>table>tr:first-child>td{
+height:200px;
+
+}
+#wrap div:first-child>table img{
+width:100%;
+}
+
+#wrap div:nth-child(2){
+background:yellow;
+}
+#wrap div:nth-child(2)>img{
+width:100%;
+}
+
+#wrap div:nth-child(3){
+background:green;
+}
+
+#wrap div:nth-child(3)>img{
+width:100%;
+height:100%
+}
+</style>
+</head>
+<body>
+	<div id="wrap">
+		<div>
+			<table border="1">
+				<tr>
+					<td colspan="2">
+						<img src="img_01.jpg">
+						닉네임
+					</td>
+				</tr>
+				<tr>
+					<td>알림</td>
+					<td>스크랩</td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<img src="main_ad.png">
+		</div>
+		<div>
+			<img src="slider_ad.png">
+		</div>
+	</div>
+</body>
+</html>

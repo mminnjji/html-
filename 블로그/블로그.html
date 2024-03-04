@@ -1,0 +1,300 @@
+<html>
+    
+	<head>
+		<title>HTML5 Basic Page</title>
+        <link rel="stylesheet" href="블로그.css">
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script>	//이벤트를 연결합니다.
+	    $(document).ready(function(){
+
+
+	     	$('.outer-menu-item').hover(function(){
+                $(this).find('.inner-menu').slideDown();
+        	 },function(){
+           	 $(this).find('.inner-menu').slideUp();
+      		   });
+            $("#page2-wrapper").css({
+                display:'none'
+            })
+            $('.xbox').css({
+                width:'40px',
+                height:'40px',
+                display:'inline-block'
+            })
+            $('.xbox2').css({
+                width:'40px',
+                height:'40px',
+                display:'inline-block'
+            })
+            $('img').css({
+                display:'inline-block'
+            })
+            $('.imgfile1').click(function(){
+                $(this).animate({
+                    width:"600",
+                    height:"500",
+                    top:'300px',
+                    left:'300px'
+                })
+               
+                $('#main-aside').fadeOut('slow')
+                $('.xbox').fadeIn('fast')
+            })
+            $('.xbox').click(function(){
+                $('.imgfile1').animate({
+                    width:"430",
+                    height:"280",
+                    top:'-300px',
+                    left:'-300px'
+                })
+                
+                $('#main-aside').fadeIn('slow')
+                $('.xbox').fadeOut('slow')
+            })
+            $('.imgfile2').click(function(){
+                $(this).animate({
+                    width:"600",
+                    height:"500",
+                    top:'300px',
+                    left:'300px'
+                })
+               
+                $('#main-aside').fadeOut('slow')
+                $('.xbox2').fadeIn('slow')
+            })
+            $('.xbox2').click(function(){
+                $('.imgfile2').animate({
+                    width:"430",
+                    height:"280",
+                    top:'-300px',
+                    left:'-300px'
+                })
+               
+                $('#main-aside').fadeIn('slow')
+                $('.xbox2').fadeOut('slow')
+            })
+            
+			$(".aside-listinfo>li").hover(function(){
+                $(this).find("+ul").stop().animate({
+					height:"70px",
+					display:'visible'
+				})
+            },function(){
+                $(this).find("+ul").stop().animate(({
+					height:"0px",
+					display:'none'
+				}))
+            })
+            $(".aside-listinfo2").hover(function(){
+                $(this).stop().animate({
+					height:"70px",
+					display:'visible'
+				})
+            },function(){
+                $(this).stop().animate(({
+					height:"0px",
+					display:'none'
+				}))
+            })
+
+            $(".input-search-submit").click(function(){
+                $("")
+            })
+
+
+
+        });
+    </script> 
+	</head>
+	<body>
+		<!--전체를 감싸는 태그-->
+		<div id="page-wrapper">
+			<!--헤더-->
+			<header id="main-header">
+				<hgroup>
+					<h1 class="master-title">html5예제</h1>
+					<h2 class="master-description">한빛아카데미</h2>
+				</hgroup>
+			</header>
+			<!--네비게이션-->
+			<nav id="main-navigation">
+				<div class="pull-left">
+					<ul class="outer-menu">
+						<li class="outer-menu-item">
+						 	<span class="menu-title">HTML5</span>
+							<ul class="inner-menu">
+								<li class="inner-menu-item"><a href="#">데이터</a></li>
+								<li class="inner-menu-item"><a href="#">데이터</a></li>
+							</ul>
+						</li>
+						<li class="outer-menu-item">
+						 	<span class="menu-title">CSS3</span>
+							<ul class="inner-menu">
+								<li class="inner-menu-item"><a href="#">데이터</a></li>
+								<li class="inner-menu-item"><a href="#">데이터</a></li>
+								<li class="inner-menu-item"><a href="#">데이터</a></li>
+							</ul>
+						</li>
+						<li class="outer-menu-item">
+						 	<span class="menu-title">JAVAScript</span>
+							<ul class="inner-menu">
+								<li class="inner-menu-item"><a href="#">데이터</a></li>
+								<li class="inner-menu-item"><a href="#">데이터</a></li>
+								<li class="inner-menu-item"><a href="#">데이터</a></li>
+								<li class="inner-menu-item"><a href="#">데이터</a></li>
+								<li class="inner-menu-item"><a href="#">데이터</a></li>
+								<li class="inner-menu-item"><a href="#">데이터</a></li>
+								<li class="inner-menu-item"><a href="#">데이터</a></li>
+								<li class="inner-menu-item"><a href="#">데이터</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="pull-right">
+					<div class="search-bar">
+						<form>
+							<input type="text" class="input-search">
+							<button class="input-search-submit">검색</button>
+						</form>
+					</div>
+				</div>
+			</nav>
+			
+			<!--본문-->
+			<div id="content">
+				<!--본문좌측영역-->
+				<section id="main-section">
+					<article>
+						<div class="article-header">
+							<h1 class="article-title">HTML5</h1>
+							<p class="article-date">2019년 02월 14일</p>
+						</div>
+						<div class="article-body">
+							<img class="imgfile1" src="http://placehold.it/430x280">
+                            <div class="xbox">X</div>
+							<br>
+							<br>
+							<p>Loren ipsum dolor sit amet.</p>
+							<br>
+							<p>Proin ut fringilla sapien..</p>
+						</div>
+                        
+					</article>
+					<article>
+						<div class="article-header">
+							<h1 class="article-title">css</h1>
+							<p class="article-date">2019년 02월 17일</p>
+						</div>
+						<div class="article-body">
+							<img class="imgfile2"  src="http://placehold.it/430x280">
+                            <div class="xbox2">X</div>
+							<br>
+							<br>
+							<p>Loren ipsum dolor sit amet.</p>
+							<br>
+							<p>Proin ut fringilla sapien..</p>
+						</div>
+                        
+					</article>
+					<section id="main-section">
+						<article>
+							<div class="article-header">
+								<h1 class="article-title">JS</h1>
+								<p class="article-date">2019년 02월 14일</p>
+							</div>
+							<div class="article-body">
+								<img class="imgfile1" src="http://placehold.it/430x280">
+								<div class="xbox">X</div>
+								<br>
+								<br>
+								<p>Loren ipsum dolor sit amet.</p>
+								<br>
+								<p>Proin ut fringilla sapien..</p>
+							</div>
+							
+						</article>
+				</section>
+				<!--본문우측영역-->
+				<aside id="main-aside">
+					<div class="aside-list">
+						<h3>카테고리</h3>
+						<ul class="aside-listinfo">
+							<li><a href="#">데이터</a></li>
+                                <ul class="aside-listinfo2">
+                                    <li><a href="#">info</a></li>
+                                    <li><a href="#">info</a></li>
+                                    <li><a href="#">info</a></li>
+                                </ul>
+							<li><a href="#">데이터</a></li>
+                            <ul class="aside-listinfo2">
+                                <li><a href="#">info</a></li>
+                                <li><a href="#">info</a></li>
+                                <li><a href="#">info</a></li>
+                            </ul>
+							<li><a href="#">데이터</a></li>
+                            <ul class="aside-listinfo2">
+                                <li><a href="#">info</a></li>
+                                <li><a href="#">info</a></li>
+                                <li><a href="#">info</a></li>
+                            </ul>
+							<li><a href="#">데이터</a></li>
+                            <ul class="aside-listinfo2">
+                                <li><a href="#">info</a></li>
+                                <li><a href="#">info</a></li>
+                                <li><a href="#">info</a></li>
+                            </ul>
+							<li><a href="#">데이터</a></li>
+                            <ul class="aside-listinfo2">
+                                <li><a href="#">info</a></li>
+                                <li><a href="#">info</a></li>
+                                <li><a href="#">info</a></li>
+                            </ul>
+						</ul>
+					</div>
+					<div class="aside-list">
+						<h3>최근 글</h3>
+                        <ul class="aside-listinfo">
+							<li><a href="#">데이터</a></li>
+                                <ul class="aside-listinfo2">
+                                    <li><a href="#">info</a></li>
+                                    <li><a href="#">info</a></li>
+                                    <li><a href="#">info</a></li>
+                                </ul>
+							<li><a href="#">데이터</a></li>
+                            <ul class="aside-listinfo2">
+                                <li><a href="#">info</a></li>
+                                <li><a href="#">info</a></li>
+                                <li><a href="#">info</a></li>
+                            </ul>
+							<li><a href="#">데이터</a></li>
+                            <ul class="aside-listinfo2">
+                                <li><a href="#">info</a></li>
+                                <li><a href="#">info</a></li>
+                                <li><a href="#">info</a></li>
+                            </ul>
+							<li><a href="#">데이터</a></li>
+                            <ul class="aside-listinfo2">
+                                <li><a href="#">info</a></li>
+                                <li><a href="#">info</a></li>
+                                <li><a href="#">info</a></li>
+                            </ul>
+							<li><a href="#">데이터</a></li>
+                            <ul class="aside-listinfo2">
+                                <li><a href="#">info</a></li>
+                                <li><a href="#">info</a></li>
+                                <li><a href="#">info</a></li>
+                            </ul>
+						</ul>
+						<div clsss="listinfo"></div>
+					</div>
+				</aside>
+			</div>
+        
+			<!--푸터-->
+			<footer id="main-footer">
+				<a href="#">ITCookBook HTML5 Programming</a>
+			</footer>
+		</div>
+		
+	</body>
+</html>

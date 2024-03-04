@@ -1,0 +1,768 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script>
+            $(document).ready(function(){
+
+                var width = 707
+                var height= 150
+                var count= 3
+                
+                //스타일을 적용합니다.
+                $('[data-role="slider"]').css({
+                    position:'relative',
+                    overflow:'hidden',
+                    width: width,
+                    height: height
+                });
+                $('.main_ad_container').css({
+                    position:'absolute',
+                    width:width*count,
+                    overflow:'hidden'
+                });
+                $('.main_ad_item').css({
+                    width:width,
+                    height:height,
+                    float:'left'
+                });;
+                $('.main_ad_item>img').css({
+                    width:'100%',
+                    height:'100%',
+                    marginTop:'10px'
+                })
+             
+                    //변수를 선언합니다. 
+                var currentPage = 0;
+                var changePage = function(){
+                    $('[data-role="slider"]>.main_ad_container').animate({
+                        left:-currentPage*width
+                    },500);
+                };
+
+                $('#left-button').click(function(){
+                    if(currentPage>0){
+                        //오른쪽으로 이동
+                        currentPage = currentPage -1;
+                        changePage();
+                        $('#right-button').css('background-color','black')
+                        if(currentPage==0){
+                            $('#left-button').css('background-color','lightgray')
+                        }
+
+                    }
+                });
+                $('#right-button').click(function(){
+                    if(currentPage<2){
+                        //오른쪽으로 이동
+                        currentPage = currentPage +1;
+                        changePage();
+                        $('#left-button').css('background-color','black')
+                        if(currentPage==2){
+                            $('#right-button').css('background-color','lightgray')
+                        }
+                    }  
+                });
+                $('.person_info,.person_recommendlist').hover(function(){
+                    $('.person_recommendlist').stop().animate({
+                        height:'250px',
+                        display:'visible'
+                },300);
+                },function(){
+                    $('.person_recommendlist').stop().animate({
+                        height:'0px',
+                        display:'none'
+                    },300);
+                       });
+
+                //커뮤니티 창 메뉴 색상변경
+                $("#aside_2nd>a").click( function(){
+                    
+                     $("#aside_2nd>a").css('color','black')
+                     $(this).css('color','lightgray')
+               })
+        
+                 //커뮤니티 리스트 변경
+               $('#article_community ~ a').click(function () {
+            
+                     var tab= $(this).attr('data');
+
+                 $('.tab').removeClass('current');
+
+                $(this).addClass('current');
+                  $("#" + tab).addClass('current');
+                 })
+                //article_4th 색변환 속성
+                $('.category1 td').click(function(){
+                    $('.category1 td').css('background','white')
+                    $(this).css('background','lightgray');
+                    
+                    var tab = $(this).attr('data');
+                    $('.today-article1').removeClass('current2');
+
+                    $("#"+ tab).addClass('current2')
+                })
+                
+            
+        });
+        </script>
+        <style>
+            /*전체설정*/
+            a{
+                text-decoration:none;
+            }
+            /*레이아웃 속성*/
+            /*전체 넓이 지정*/
+            #wrapper{
+                width:75%;
+                margin-left:12.5%;
+                
+            }
+            /*최상단메뉴위치*/
+            .top_header{
+                padding-left:160px;
+                border-bottom:1px solid lightgray;
+                padding-bottom:-25px;     
+            }
+            /*메인및 검색창 위치*/
+            #head{
+                width:100%;
+                height:160px;
+                margin-bottom:10px;
+                position:relative;
+            }
+            /*네비게이션 위치*/
+            #nav{
+                width:1590px;
+                height:50px;
+                border-top:1px solid gray;
+                border-bottom:1px solid gray;
+                position:relative;
+                top:0px;
+                box-shadow: 1px;
+                background-color: gray;
+                margin-left:-10px;
+                padding-left:40px;
+            }
+            /*article 및 aside위치 속성*/
+            #article_1st{
+                width:61%;
+                position:relative;
+                float:left;
+            }
+            #aside_1st{
+                width:33%;
+                position:relative;
+                margin-top:10px;
+                float:right;
+            }
+            #article_2nd{
+                width:60%;
+                position:relative;
+                float:left;
+            }
+            #aside_2nd{
+                
+                width:33%;
+                position:relative;
+                margin-top:10px;
+                float:right;
+            }
+            #article_3rd{
+                
+                width:60%;
+                position:relative;
+                float:left;
+            }
+           
+            #article_4th_1{
+                background-color:none;
+                width:60%;
+                position:relative;
+                float:left;
+                margin-bottom:20px;
+            }
+            #article_4th_2{
+                width:60%;
+                position:relative;
+                float:left;
+                margin-left:-5px;
+            }
+
+            /*최상위 메뉴 스타일*/
+            .top_banner{
+                height:30px;
+                margin-left:30px;      
+            }
+            
+            .top_asidebanner{
+                position:relative;
+                float:right;
+            }
+
+            .top_asidebanner_nickname{
+                display:inline-block;
+                font-family:monospace;
+                margin-bottom:-30px;
+            }
+
+           
+            /*상위메뉴 헤더*/
+            #head>div{
+                display:inline-block;
+            }
+
+            /*로고이미지속성*/
+            .logo{
+                width:15%;
+                height:30%;
+                border:0.1px solid lightgray;
+                margin-top:60px;
+                margin-left:0px;
+            }
+            .logo>a>img{
+                width:120%;
+
+            }
+
+            /*검색창 속성*/
+            /*검색창 싸는 박스 속성*/
+            .search{
+                width:70%;
+                height:30%;
+                margin-left:6%;
+                position:absolute;
+                margin-top:-15px;
+            }
+            .searchbar{
+                width:80%;
+                height:100%;
+                margin-top:9%;
+                background-color:white;
+                position:relative;
+                border:solid 2px gray;
+                overflow:hidden;
+            }
+            .searchbar>input{
+                width:80%;
+                height:100%;
+                position:absolute;
+                top:0;
+                border:none;
+            }
+
+            /*head 검색버튼 속성*/
+            .searchbar>a{
+                width:10%;
+                height:100%;
+                position:absolute;
+                top:3px;
+                left:92%;
+                border:none;
+                background-color:white;
+                cursor:pointer;
+            }
+            .searchbar>a>img{
+                width:45px;
+                height:45px;
+            }
+
+            /* header 상위 광고 속성*/
+            .head_aside_ad{
+                width:10%;
+                height:30%;
+                position:absolute;
+                left:85%;
+                margin-top:60px;
+                border:0.1px solid lightgray;
+            }
+            
+            /*nav 네비게이션 속성*/
+            .navmenu a{
+                display:inline-block;
+            }
+            /*nav 네비게이션 넓이 wrapper에 맞춤*/
+            .navmenu{
+                width:80%;
+                margin-left:12%;
+                margin-top:12px;
+            }
+            .navmenu a>p{
+                margin-right:40px;
+                color:white;
+                text-decoration:bold;
+                font-size:15px;
+                display:inline-block;
+                margin-top:-8px;
+                cursor:pointer;
+            }
+            .navmenu p{
+                margin-right:40px;
+                color:white;
+                text-decoration:bold;
+                font-size:15px;
+                display:inline-block;
+                margin-top:-8px;
+                cursor:pointer;
+            }
+           
+        
+            /*aside_1st 상위 프로필*/
+            .person_info{
+                width:100%;
+                height:150px;
+                background-color:white;
+                border:0.5px solid lightgray;
+                position:relative;
+                border-collapse:collapse;
+            }
+            .person_info td{
+                border:0.5px solid lightgray;
+                border-collapse:collapse;
+            }
+            .person_main{
+                height:100px;
+                position:relative
+            }
+            .person_main>img{
+                display:inline-block;
+                height:60px;
+                position:absolute;
+                top:15px;
+                left:15px;
+            }
+            .person_main>div{
+                display:inline-block;
+                position:absolute;
+                top:0px;
+                left:90px;
+                
+            }
+            .person_main>div>p{
+                display:inline-block;
+                margin-top:-15px;
+            }
+
+            .person_main>button{
+                width:90px;
+                height:30px;
+                font-size:11px;
+                position:absolute;
+                top:30px;
+                left:270px;
+                border:0px;
+                background-color:lightgray;
+                color:white;
+                border-radius:3px;
+                cursor:pointer;
+            }
+
+            /*aside_2nd 슬라이드 속성*/
+            .person_recommendlist{
+               width:386px;
+               height:0px;
+               overflow:hidden;
+               position:absolute;
+               top:422px;
+               right:204px;
+               background-color:white;
+               list-style:none;
+               border:0.5px solid lightgray;       
+           }
+
+           .person_recommendlist>ul{
+               margin-top:1px;
+               background-color:white;
+               list-style:none;
+           }
+
+           .person_recommendlist>ul>li{
+               height:50;
+               background-color:white;
+               list-style:none;
+               border-bottom:0.5px solid lightgray;
+               margin-left:-40px;
+               padding-left:10px;
+               line-height:3;
+               cursor:pointer;
+           }
+
+           /*aside_2nd 속성 */
+           #article_community + a{
+                color:lightgray;
+                cursor:pointer;
+            }
+            #article_community~ol{
+                cursor:pointer;
+            }
+            #aside_2nd>h4{
+                margin-top:5px;
+                margin-bottom:5px;
+                margin-left:15px
+            }
+            #aside_2nd>a{
+                font-size:13px;
+                color:black;
+                font-weight:bold;
+                margin-left:15px;
+            }
+            #aside_2nd{
+                border:0.1px solid lightgray;
+                height:300px;
+            }
+            /*aside_2nd 이동 속성*/
+            .tab { display: none; }
+            .tab.current { display: inherit; }
+
+
+           /*전체 article 속성*/
+           .article{
+                height:300px;
+                padding-top:10px;
+                border:0.1px solid lightgray;
+            }
+             /* article_1st 상위 광고~ 프로필 속성 */
+             .main_ad_position{
+                height:160px;
+            }
+            /*article_1st 광고 슬라이드 버튼 스타일*/
+            #left-button{
+                border:none;
+                border-radius:50%;
+                width:15px;
+                height:15px;
+                background-color:lightgray;
+                margin-left:330px;
+                position:relative;
+                top:-20px;
+                cursor:pointer;
+            }
+            #right-button{
+                border:none;
+                border-radius:50%;
+                width:15px;
+                height:15px;
+                background-color:black;
+                position:relative;
+                top:-20px;
+                cursor:pointer;
+            }
+            
+             /*article_2nd속성*/
+            /*article_2nd 한개 기사 묶는 wrapper*/
+            .article{
+                height:140px;
+                width:100%;
+                position:relative;
+            }
+
+            /*article_2nd 전체 박스 속성*/
+            .article-info{
+                margin-top:-50px;
+            }
+            .article-info>img{
+                width:100px;
+                display:inline-block;
+                margin-top:30px
+            }
+
+            /*article_2nd 박스속성*/
+            .article-info div{
+                position:absolute;
+                display:inline-block;
+                top:5px;
+                margin-left:15px;
+                overflow:hidden;
+            }
+
+            /*article_2nd 글 속성*/
+            .arcinfo{
+                font-size:11px;
+                overflow:hidden;
+            }
+           
+             
+            /*article_3rd속성*/
+            
+            .news_list{
+                width:100%;
+                height:140px;
+                margin-top:10px;
+                text-align:center;
+                border-collapse:collapse;   
+            }
+            .news_list img{
+                width:80%;
+                height:80px;
+                margin:10px;
+            }
+            .main_ad{
+                padding-top:10px;
+            }
+            .main_ad>p{
+                display:inline-block;
+            }
+
+            /*article_4th 리스트 카테고리*/
+            
+            .category1,.category2,.category3,.category4{
+                width:100%;
+                height:50px;
+                text-align:center;
+            }
+            .columnlist a{
+                color:red;
+            }
+            .today-article1,.today-article2,.today-article3,.today-article4{
+                width:100%;
+            }
+            .article_img{
+                display:inline-block;
+                height:150px;
+                width:150px;
+            }
+            
+            .today-article1{
+                 display:none;
+             }
+             /*current로 전환되면 표시 첫번째 카테고리*/
+             .today-article1.current2{
+                 display:inherit;
+             }
+            
+            /*기사 리스트 스타일 속성*/
+            .today-article1 td{
+                position:relative;
+                overflow:hidden;
+                position:relative;
+            }
+            
+            .today-article1 td>div{
+                display:inline-block;
+                position:relative;
+                top:-160px;
+                left:170px;
+                margin-bottom:-300px;
+            }
+           
+            /*카테고리 메뉴 표 스타일 */
+            .category1,.category2,.category3,.category4{
+                border: 0.5px solid lightgray;
+                border-collapse:collapse;
+            }
+            .category1 td{
+                width:20%;
+               
+            }
+            .category2 td{
+                width:20%;
+               
+            }
+            .category3 td{
+                width:20%
+            }
+            .category4 td{
+                width:20%
+            }
+            .firstcss{
+                background-color:lightgray;
+            }
+
+           
+            
+
+            
+        </style>
+    </head>
+	<body>
+        <!--최상위메뉴-->
+        <header id="top_header">
+            <a  href="#"><img class="top_banner" ></a> <a href="#"><img class="top_banner" ></a> <a  href="#"><img class="top_banner" ></a> <a  href="#"><img class="top_banner" ></a> 
+            <a  href="#"><img class="top_banner" ></a><a href="#"><img class="top_asidebanner" ></a><a href="#"><h6 class="top_asidebanner_nickname"></h6><img></a>
+        </header>
+    <!--상위 메뉴를 감싸는 태그-->   
+	<div id="wrapper">
+		<header id="head">
+			<div class="logo">
+			<a href="#"><img></a>	
+			</div>
+            <!--검색창-->
+			<div class="search">
+				<div class="searchbar">
+					<input type="search"><a href=""><img class="lenses" src="검색버튼.png"></a>
+				</div>
+			</div>
+            <!--오른쪽 광고-->
+			<div class="head_aside_ad">
+				<a href="#"><img></a>	
+			</div>
+		</header>
+	</div>
+	<!--네비게이션-->
+	<nav id="nav">
+		<div class="navmenu">
+            <a href="newpage1.html"><p id="firstmenu"></p></a> <a href="newpage2.html"><p id="secondmenu"></p></a> <a href="newpage3.html"><p id="thirdmenu"></p></a>
+            <a href="newpage4.html"><p id="fourthmenu"></p></a><p id="fifthmenu"></p> <p id="sixthmenu"></p>
+		</div>
+	</nav>
+	<!-- 하위 전체 감싸는 태그-->
+    <div id="wrapper">
+		<section id="main1">
+        <!--왼쪽 슬라이드 광고-->
+        <div id="article_1st">
+            <div data-role="slider" data-width="900" data-height="300">
+                <div class="main_ad_container">
+                    <div class="main_ad_item">
+                        <img>
+                    </div>
+                    <div class="main_ad_item">
+                        <img>
+                    </div>
+                    <div class="main_ad_item">
+                        <img>
+                    </div>
+                </div>
+            </div>
+            <button id="left-button"></button>
+            <button id="right-button"></button>
+        </div>
+        <!--오른쪽 프로필-->
+            <div id="aside_1st">
+                <table  class="person_info">
+                    <tr>
+                        <td colspan="2" class="person_main"><img ><div><h2></h2><p></p><p id="num"></p></div><button></button></td>
+                    </tr>
+                    <tr class="person_sub">
+                        <td><a href="#"></a></td>
+                        <td><a href="#"></a></td>
+                    </tr>
+				</table>
+                
+            </div>
+            
+             <!--하위 메뉴 전체-->
+             <!--왼쪽 하단 첫번째 기사 섹션-->
+            <div id="article_2nd">
+                <article class="article">
+                    <h6></h6> 
+                    <div class="article-info">
+                        <img>
+                        <div>
+                            <h5></h5><p class="arcinfo"></p>
+                        </div>
+                    </div>
+                </article>
+                <hr>
+                <article class="article">
+                    <h6></h6> 
+                    <div class="article-info">
+                        <img>
+                        <div>
+                            <h5></h5><p class="arcinfo"></p>
+                        </div>
+                    </div>
+                </article>
+                </div>
+            <!--오른쪽 하단 섹션-->
+				<div id="aside_2nd">
+					<h4 id="article_community"></h4>
+                    <a href="#" data="community_best1" >1</a> <a href="#" data="community_best2">2</a> <a href="#" data="community_best3">3</a> <a href="#" data="community_best4">4</a> 
+                    <ol id="community_best1" class="tab current">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ol>
+                    <ol id="community_best2" class="tab">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ol>
+                    <ol id="community_best3" class="tab">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ol>
+                    <ol id="community_best4" class="tab">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ol>
+				</div>
+                <div class="person_recommendlist">
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>     
+                    </ul>
+                </div>
+                    <!--왼쪽 하단 두번째 섹션-->
+                <div id="article_3rd">
+					<h4></h4>
+					<table class="news_list">
+						<tr>
+							<td><img></td>
+                            <td><img></td>
+                            <td><img></td>
+						</tr>
+						<tr>
+							<td><img></td>
+                            <td><img></td>
+                            <td><img></td>
+						</tr>
+					</table>
+				</div>
+                <!--왼쪽 하단 세번째 리스트파트1-->
+				<div id="article_4th_1">
+					<p class="month_article"> </p>
+					<table class="category1" border="1">
+					    <tr>
+						    <td data="data1" class="firstcss"></td>
+						    <td data="data2"></td>
+						    <td data="data3"></td>
+						    <td data="data4"></td>
+						    <td data="data5"></td>
+			            </tr>
+					</table>
+                </div>
+                <!--왼쪽 하단 세번째 리스트파트2-->
+				<div id="article_4th_2">
+					<table class="today-article1 current2" id="data1">
+					    <tr><td><img class="article_img"><div id="supporter"><h5></h5><p></p></div></td></tr>
+					    <tr><td><img class="article_img"><div id="supporter"><h5></h5><p></p></div></td></tr>
+                        <tr><td><img class="article_img"><div id="supporter"><h5></h5><p></p></div></td></tr>
+                        <tr><td><img class="article_img"><div id="supporter"><h5></h5><p></p></div></td></tr>
+					</table>
+                    <table class="today-article1" id="data2">
+					    <tr><td><img class="article_img"><div id="supporter"><h5></h5><p></p></div></td></tr>
+					    <tr><td><img class="article_img"><div id="supporter"><h5></h5><p></p></div></td></tr>
+                        <tr><td><img class="article_img"><div id="supporter"><h5></h5><p></p></div></td></tr>
+                        <tr><td><img class="article_img"><div id="supporter"><h5></h5><p></p></div></td></tr>
+					</table>
+                    <table class="today-article1" id="data3">
+					    <tr><td><img class="article_img"><div id="supporter"><h5></h5><p></p></div></td></tr>
+					    <tr><td><img class="article_img"><div id="supporter"><h5></h5><p></p></div></td></tr>
+                        <tr><td><img class="article_img"><div id="supporter"><h5></h5><p></p></div></td></tr>
+                        <tr><td><img class="article_img"><div id="supporter"><h5></h5><p></p></div></td></tr>
+					</table>
+                    <table class="today-article1" id="data4">
+					    <tr><td><img class="article_img"><div id="supporter"><h5></h5><p></p></div></td></tr>
+					    <tr><td><img class="article_img"><div id="supporter"><h5></h5><p></p></div></td></tr>
+                        <tr><td><img class="article_img"><div id="supporter"><h5></h5><p></p></div></td></tr>
+                        <tr><td><img class="article_img"><div id="supporter"><h5></h5><p></p></div></td></tr>
+                    </table>
+                    <table class="today-article1" id="data5">
+					    <tr><td><img class="article_img"><div id="supporter"><h5></h5><p></p></div></td></tr>
+					    <tr><td><img class="article_img"><div id="supporter"><h5></h5><p></p></div></td></tr>
+                        <tr><td><img class="article_img"><div id="supporter"><h5></h5><p></p></div></td></tr>
+                        <tr><td><img class="article_img"><div id="supporter"><h5></h5><p></p></div></td></tr>
+                    </table>
+                </div>
+		</section>
+
+		</body>
+</html>

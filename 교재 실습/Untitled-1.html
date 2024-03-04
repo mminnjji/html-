@@ -1,0 +1,774 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script>
+            $(document).ready(function(){
+                $(".profile+img").on('mouseenter',function(){
+                    $(".profilelist").animate({
+                        height:"60px",
+                        opacity:"1"
+                    },100)
+                })
+                $(".wrapper").on('click',function(){
+                    $(".profilelist").animate({
+                        height:"0px",
+                        opacity:"0"
+                    },100)
+                })
+               
+                $(".subnewsbar>a").click( function(){
+            
+                    $(".subnewsbar>a").css('color','black')
+                    $(this).css('color','#02a0ff')
+                    $(this)
+                }
+                )
+            
+               
+
+                $('#com ~ a').click(function () {
+                    var tab= $(this).attr('data');
+
+                    $('.tab').css('display', 'none');
+
+                    $(this).addClass('current');
+                    $("#" + tab).css('display', 'inherit');
+                })
+    
+                var width = 700
+                var height= 150
+                var count= 3
+                
+                //스타일을 적용합니다.
+                $('[data-role="slider"]').css({
+                    position:'relative',
+                    overflow:'hidden',
+                    width: width,
+                    height: height
+                });
+                $('.container').css({
+                    position:'absolute',
+                    width:width*count,
+                    overflow:'hidden'
+                });
+                $('.item').css({
+                    width:width,
+                    height:height,
+                    float:'left'
+                });;
+                $('.item>img').css({
+                    width:'100%',
+                    height:'100%',
+                    paddingTop:'10px'
+                })
+             
+                    //변수를 선언합니다. 
+                var currentPage = 0;
+                var changePage = function(){
+                    $('[data-role="slider"]>.container').animate({
+                        left:-currentPage*width
+                    },500);
+                };
+
+                $('#left-button').click(function(){
+                    if(currentPage>0){
+                        //오른쪽으로 이동
+                        currentPage = currentPage -1;
+                        changePage();
+                        $('#right-button').css('background-color','#02a0ff')
+                        if(currentPage==0){
+                            $('#left-button').css('background-color','lightgray')
+                        }
+
+                    }
+                });
+                $('#right-button').click(function(){
+                    if(currentPage<2){
+                        //오른쪽으로 이동
+                        currentPage = currentPage +1;
+                        changePage();
+                        $('#left-button').css('background-color','#02a0ff')
+                        if(currentPage==2){
+                            $('#right-button').css('background-color','lightgray')
+                        }
+
+                    }  
+                   
+                });
+                $('.person-main').mouseenter(function(){
+                    $('.recommendlist').stop().animate({
+                        height:'250',
+                        opacity:'1'
+                    },300)
+                })
+              
+               
+                $('.person-main').mouseleave(function(){
+                    $('.recommendlist').css({
+                        height:'0',
+                        opacity:'0'
+                    })
+                })
+                $('.recommendlist').mouseleave(function(){
+                    $(".recommendlist").css({
+                        height:'0',
+                        opacity:'0'
+                    })
+                });
+                $('#firstmenu').click( function(){
+                    $(document).scrollTop('300')
+                })
+                $('.category td').click(function(){
+                    $('.category td').css('background','white');
+                    $(this).css('background','lightgray');
+                    
+                    var tab = $(this).attr('data');
+                    $('.today-article').removeClass('current2');
+
+                    $("#"+ tab).addClass('current2')
+                })
+
+            })
+        </script>
+        <style>
+            .tab { display: none; }
+            .tab.current { display: inherit; }
+             .today-article{
+                 display:none;
+             }
+             .today-article.current2{
+                 display:inherit;
+             }
+            .wrapper{
+                width:75%;
+                margin-left:12.5%;
+                overflow:hidden;
+            }
+            a{
+                text-decoration:none;
+            }
+            #head{
+                width:100%;
+                height:160px;
+                margin-bottom:10px;
+                position:relative;
+            }
+            .frontbanner
+                {
+                height:30px;
+                margin-left: 30px;      
+                
+            }
+            .topline{
+                padding-left:160px;
+                border-bottom:1px solid lightgray;
+                padding-bottom:-25px;     
+            }
+            .front-asidebanner{
+                margin-left:420px;
+                margin-right:10px;
+            }
+            .profile{
+                display:inline-block;
+                font-family:monospace;
+                margin-bottom:-30px;
+            }
+            .profilelist{
+               
+                height:0px;
+                opacity:0;
+                position:fixed;
+                top:40px;
+                right:270px;
+               
+            }
+            .recommendlist{
+               width:382px;
+               height:0px;
+               opacity:0;
+               position:absolute;
+               top:402px;
+               right:207px;
+               background-color:white;
+               list-style:none;
+               border:0.5px solid lightgray
+           }
+           .recommendlist>ul{
+               margin-top:1px;
+               background-color:white;
+               list-style:none;
+           }
+           .recommendlist>ul>li{
+               height:50;
+               background-color:white;
+               list-style:none;
+               border-bottom:0.5px solid lightgray;
+               margin-left:-40px;
+               padding-left:10px;
+               line-height:3;
+               cursor:pointer;
+           }
+
+            .profilelist>ul{
+                
+                height:60px;
+                font-size:12px;
+                list-style:none;
+            
+            }
+            .profilelist li{
+                padding:5px;
+                background-color:white;
+                border-left:0.5px solid lightgray;
+                border-right:.05px solid lightgray;
+                box-shadow: 0 4px 4px -4px black;
+                cursor:pointer;
+
+            }
+            .profilelist>ul>li:nth-child(1){
+                border-top:0.5px solid lightgray;
+                border-radius:3px 3px 0 0;
+            }
+            .profilelist>ul>li:nth-child(4){
+                border-bottom:0.5px solid lightgray;
+                border-radius: 0 0 3px 3px;
+            }
+            
+            .logo{
+                width:15%;
+                height:30%;
+            }
+            .logo>a>img{
+                width:120%;
+                margin-top:30px;
+                margin-left:-30px;
+            }
+            #head>div{
+                display:inline-block;
+            }
+            .search{
+                width:60%;
+                height:30%;
+                margin-left:6%;
+                position:absolute;
+            }
+            .searchbar{
+                width:80%;
+                height:100%;
+                margin-top:9%;
+                background-color:white;
+                position:relative;
+                border:solid 2px #02a0ff;
+            }
+            .searchbar>input{
+                width:80%;
+                height:100%;
+                position:absolute;
+                top:0;
+                border:none;
+            }
+            .top{
+                width:20%;
+                height:30%;
+                position:absolute;
+                left:80%;
+                margin-top:10px;
+            }
+            .top>a{
+                color:black;
+                font-size:11px;
+            }
+            .searchbar>button{
+                width:10%;
+                height:100%;
+                position:absolute;
+                left:90%;
+                border:none;
+                background-color:white;
+                cursor:pointer;
+            }
+
+            .lenses{
+                width:100%;
+                height:80%;
+            }
+            #bar{
+                width:1590px;
+                height:50px;
+                border-top:1px solid #02a0ff;
+                border-bottom:1px solid #02a0ff;
+                position:relative;
+                top:0px;
+                box-shadow: 1px;
+                background-color: #02a0ff;
+                margin-left:-10px;
+                padding-left:40px;
+            }
+            #bar>div>p{
+                margin-right:40px;
+                color:white;
+                text-decoration:bold;
+                font-size:15px;
+                display:inline-block;
+                margin-top:-8px;
+                cursor:pointer;
+            }
+            
+            #bar>div{
+                width:80%;
+                margin-left:12%;
+                margin-top:12px;
+            }
+            #main1{
+                width:100%
+            }
+            .main1{
+                width:100%;
+                margin-top:15px;
+            }
+            .ad{
+                width:67%;
+                padding-right:30px;
+                
+            }
+          
+            .all1{
+                height:160px;
+            }
+            .all2{
+                height:300px;
+                padding-top:10px;
+            }
+            .newsbar{
+                background-color:lightgray;
+                height:40px;
+                width:98.5%;
+                border:0.5px solid gray;
+                border-radius:2px;
+                padding-top:15px;
+                padding-left:10px;
+                margin-top:10px;
+            }
+
+            .newsbar>a{
+                text-decoration:none;
+                color:black;
+                font-size:14px;
+            }
+            .newsbar>.navernews{
+                margin-left:33%;
+                color:#02a0ff;
+            }
+            .person{
+                width:100%;
+                height:150px;
+                background-color:white;
+                border:0.5px solid lightgray;
+                position:relative;
+            }
+            .person-main{
+                height:100px;
+                position:relative
+            }
+            .person-main>img{
+                display:inline-block;
+                height:60px;
+                position:absolute;
+                top:15px;
+                left:15px;
+            }
+            .person-main>div{
+                display:inline-block;
+                position:absolute;
+                top:0px;
+                left:90px;
+                
+            }
+            .person-main>div>p{
+                display:inline-block;
+                margin-top:-15px;
+            }
+            .person-main>button{
+                width:90px;
+                height:30px;
+                font-size:11px;
+                position:absolute;
+                top:30px;
+                left:270px;
+                border:0px;
+                background-color:lightgray;
+                color:white;
+                border-radius:3px;
+                cursor:pointer;
+            }
+            #num{
+                color:blue;
+            }
+            .person-sub>td{
+                text-align:center;
+                width:20%;
+                border-top:0.5px solid lightgray;
+            }
+            .person-sub>td:nth-child(1){
+                border-right:0.5px solid lightgray;
+            }
+            .person-sub>td>a{
+                color:black;
+                text-decoration:none;
+                font-size:12px;
+            }
+            .subnewsbar{
+                height:300px;
+                width:97%;
+                border:0.5px solid lightgray;
+                border-radius:3px;
+                padding-top:14px;
+                padding-left:10px;
+                margin-top:10px;
+            }
+          
+            .subnewsbar>h4{
+                margin-top:5px;
+                margin-bottom:5px;
+                margin-left:15px
+            }
+            .subnewsbar>a{
+                font-size:13px;
+                color:black;
+                font-weight:bold;
+                margin-left:15px;
+            }
+           
+            .newslist{
+                width:100%;
+                height:140px;
+                margin-top:10px;
+                text-align:center;
+                border-collapse:collapse; 
+                
+            }
+            .newslist img{
+                width:80%;
+                height:80px;
+                margin:10px;
+            }
+
+            .ad{
+                padding-top:10px;
+            }
+            .ad>p{
+                display:inline-block;
+            }
+            #ad2{
+                position:relative;
+            }
+            .ad2{
+                width:100%;
+                height:200px;
+                position:absolute;
+                top:20px;
+            }
+            .category{
+                width:100%;
+                height:50px;
+                text-align:center;
+            }
+            .columnlist a{
+                color:red;
+            }
+            .today-article{
+                width:100%;
+            }
+            .article_img{
+                display:inline-block;
+                height:150px;
+                width:150px;
+            }
+            .today-article>tbody>tr>td{
+                position:relative;
+                overflow:hidden;
+            }
+            .today-article>tbody>tr>td>div{
+                display:inline-block;
+                position:absolute;
+                top:0px;
+                left:170px;
+            }
+
+            .category{
+                border: 0.5px solid lightgray;
+                border-collapse:collapse;
+            }
+            .category td{
+                width:20%
+            }
+            .article{
+                height:140px;
+                width:100%;
+                position:relative;
+            }
+            .article-info{
+                margin-top:-50px;
+            }
+            .article-info>img{
+                width:100px;
+                display:inline-block;
+                margin-top:30px
+            }
+            .article-info div{
+                position:absolute;
+                display:inline-block;
+                top:5px;
+                margin-left:15px;
+            }
+            .arcinfo{
+                font-size:11px;
+            }
+          
+            #com + a{
+                color:#02a0ff;
+                cursor:pointer;
+            }
+            #com~ol{
+                cursor:pointer;
+            }
+            #left-button{
+                border:none;
+                border-radius:50%;
+                width:15px;
+                height:15px;
+                background-color:lightgray;
+                margin-left:330px;
+                position:relative;
+                top:-20px;
+                cursor:pointer;
+            }
+            #right-button{
+                border:none;
+                border-radius:50%;
+                width:15px;
+                height:15px;
+                background-color:#02a0ff;
+                position:relative;
+                top:-20px;
+                cursor:pointer;
+            }
+        </style>
+    </head>
+	<body>
+        <header class="topline">
+            <a  href="#"><img class="frontbanner" src="상위카카오배너.png"></a> <a  href="#"><img class="frontbanner" src="상위카카오배너.png"></a> <a  href="#"><img class="frontbanner" src="상위카카오배너.png"></a> <a  href="#"><img class="frontbanner" src="상위카카오배너.png"></a> <a  href="#"><img class="frontbanner" src="상위카카오배너.png"></a> 
+            <a  href="#"><img class="front-asidebanner" src="알림스크랩.png"></a><a href="#"><h6 class="profile">닉네임</h6><img src="아래로 펼치기.png"></a>
+        </header>
+        
+	<div class="wrapper">
+		<header id="head">
+			<div class="logo">
+			<a href="#"><img src="링커리어로고.png"></a>	
+			</div>
+			<div class="search">
+				<div class="searchbar">
+					<input type="search"><button><img src="검색버튼.png" class="lenses"></button>
+				</div>
+			</div>
+			<div class="top">
+				<a href="#"><img src="링커리어상위배너.png"></a>	
+			</div>
+		</header>
+		</div>
+		
+		<nav id="bar">
+			<div>
+				<p id="firstmenu">대외활동</p> <p id="secondmenu">공모전</p> <p id="thirdmenu">동아리</p> <p id="fourthmenu">인턴</p> 
+				<p id="fifthmenu">채용</p> <p id="sixthmenu">자소서만능검색기</p>
+			</div>
+		</nav>
+		
+		<div class="wrapper">
+		<section id="main1">
+			<table class="main1" >
+				<tr>
+					<td class="ad" class="all1">
+                        <div data-role="slider" data-width="900" data-height="300">
+                        <div class="container">
+                            <div class="item">
+                               <img src="메인광고.png">
+                            </div>
+                            <div class="item">
+                                <img src="메인광고2.png">
+                            </div>
+                            <div class="item">
+                                <img src="메인광고3.png">
+                            </div>
+                            </div>
+                        </div>
+                        <button id="left-button"></button>
+                        <button id="right-button"></button></td>
+					<td>
+                    <table  class="person">
+							<tr>
+								<td colspan="2" class="person-main"><img src="프로필이미지.png"><div><h2>닉네임</h2><p>맞춤활동 추천</p><p id="num">1104</p></div><button>로그아웃</button></td>
+							</tr>
+							<tr class="person-sub">
+								<td><a href="#">알림</a></td>
+								<td><a href="#">스크랩</a></td>
+							</tr>
+                            <tr>
+                            </tr>
+						</table>
+                        <div class="recommendlist">
+                            <ul>
+                                <li>행복지역아동센터 교육봉사 대학생부문 선발</li>
+                                
+                                <li>SK 이노베이션 그린 에듀케이션 뭐시기 모집</li>
+                                
+                                <li>현대차 정몽구재단 대학생 서포터즈 모집</li>
+                                
+                                <li>셀레브리티 뷰티 홍보단 월 활동비 15만원</li>
+                                
+                                <li> AI 국비지원 교육기관 경기도 과학진흥원</li>     
+                            </ul>
+                        </div>
+					</td>
+				</tr>
+				<tr>
+					<td class="ad" class="all2">
+                        <article class="article">
+                           <h6>합격자료</h6> <div class="article-info"><img src="기사배너.png"><div><h5>지원할때 자신의 경험에 초점 맞추세요</h5><p class="arcinfo">Q 자신의 역량과 뭐 그런것들을 강조해야 붙기 쉽습니다...<br>
+                            지금은 밤 9시 23분.. 중간고사가 2주 남았다 왜 진작에 수강철회를 하지 않았을까...<br>21학점 개무리 너를 과대평가 하지 말렴.. 
+                            </p></div></div>
+                        </article>
+                        <hr>
+                        <article class="article">
+                           <h6>합격자료</h6> <div class="article-info"><img src="기사배너.png"><div><h5>지원할때 자신의 경험에 초점 맞추세요</h5><p class="arcinfo">Q 자신의 역량과 뭐 그런것들을 강조해야 붙기 쉽습니다...<br>
+                                지금은 밤 9시 23분.. 중간고사가 2주 남았다 왜 진작에 수강철회를 하지 않았을까...<br>21학점 개무리 너를 과대평가 하지 말렴.. 
+                                </p></div></div>
+                        </article>
+                        
+					</td>
+					<td class="all2"><div class="subnewsbar">
+						<h4 id="com">커뮤니티 베스트 이야기</h4>
+                        <a href="#" data="data5" >실시간</a> <a href="#" data="data6">댓글순</a> <a href="#" data="data7">추천순</a> <a href="#" data="data8">월간</a> 
+                        <ol id="data5" class="tab current">
+                            <li>OOOO 컨텐츠 에디터 발표 났나요?</li>
+                            <li>OOOO 컨텐츠 에디터 발표 났나요?</li>
+                            <li>OOOO 컨텐츠 에디터 발표 났나요?</li>
+                            <li>OOOO 컨텐츠 에디터 발표 났나요?</li>
+                            <li>OOOO 컨텐츠 에디터 발표 났나요?</li>
+                            <li>OOOO 컨텐츠 에디터 발표 났나요?</li>
+                            <li>OOOO 컨텐츠 에디터 발표 났나요?</li>
+                            <li>OOOO 컨텐츠 에디터 발표 났나요?</li>
+                            <li>OOOO 컨텐츠 에디터 발표 났나요?</li>
+                            <li>OOOO 컨텐츠 에디터 발표 났나요?</li>
+                        </ol>
+                        <ol id="data6" class="tab">
+                            <li>OOOO dkdkdkdkdkdkdkdkdkdkdkdkdk</li>
+                            <li>OOOO dkdkdkdkdkdkdkdkdkdkdkdkdk</li>
+                            <li>OOOO dkdkdkdkdkdkdkdkdkdkdkdkdk</li>
+                            <li>OOOO dkdkdkdkdkdkdkdkdkdkdkdkdk</li>
+                            <li>OOOO dkdkdkdkdkdkdkdkdkdkdkdkdk</li>
+                            <li>OOOO dkdkdkdkdkdkdkdkdkdkdkdkdk</li>
+                            <li>OOOO dkdkdkdkdkdkdkdkdkdkdkdkdk</li>
+                            <li>OOOO dkdkdkdkdkdkdkdkdkdkdkdkdk</li>
+                            <li>OOOO dkdkdkdkdkdkdkdkdkdkdkdkdk</li>
+                            <li>OOOO dkdkdkdkdkdkdkdkdkdkdkdkdk</li>
+                        </ol>
+                        <ol id="data7" class="tab">
+                            <li>OOsdkfkdkdkdddddfgdfgdfgdddfgk</li>
+                            <li>OOsdkfkdkdkddddddfgdfgdfgdfgddk</li>
+                            <li>OOsdkfkdkdkdddrferertedfgrkkddk</li>
+                            <li>OOsdkfkdkdkdddddddfgdfgdkdkkddk</li>
+                            <li>OOsdkfkdkdkdssde443vddfgdfgkkddk</li>
+                            <li>OOsdkfkdkdkddddddfdgdfgdfgddddk</li>
+                            <li>OOsdkfkdkdkdddddddddddkdkdkkddk</li>
+                            <li>OOsdkfkdkdkdddddddddddkdkdkkddk</li>
+                            <li>OOsdkfkdkdkdddddddddddkdkdkkddk</li>
+                            <li>OOsdkfkdkdkdddddddddddkdkdkkddk</li>
+                            
+                        </ol>
+                        <ol id="data8" class="tab">
+                            <li>OOOO 컨텐츠 에디dfgfdgfdgfdg 났나요?</li>
+                            <li>OOOO fdgfdgfdgfgdfdg났나요?</li>
+                            <li>OOOO 컨텐츠 fdgfgfdgfdgfgd 났나요?</li>
+                            <li>OOOO 컨텐츠fdggfdfdgfdg표 났나요?</li>
+                            <li>OOOO 컨fdggfddfgdgfdfgdfgfgd났나요?</li>
+                            <li>OOOO 컨텐츠fdgfdgfgdfgd 났나요?</li>
+                            <li>OOOO 컨텐츠 에fgfdgfgdfgdfdg났나요?</li>
+                            <li>OOOO 컨텐fdgfgdfgd발표 났나요?</li>
+                            <li>OOOO 컨텐츠 에디fdfdgf났나요?</li>
+                            <li>OOsdkfkdkdkdddddddddddkdkdkkddk</li>
+                        </ol>
+					</div></td>
+				</tr>
+				<tr id="firstmenu-container">
+					<td class="ad">
+					<h4>관심있는 활동정보 </h4>
+					<table class="newslist">
+						<tr>
+							<td><img src="스크랩배너.png"></td><td><img src="스크랩배너.png"></td><td><img src="스크랩배너.png"></td>
+						</tr>
+						<tr>
+							<td><img src="스크랩배너.png"></td><td><img src="스크랩배너.png"></td><td><img src="스크랩배너.png"></td>
+						</tr>
+						
+					</table>
+                    </td>
+					<td id="ad2" rowspan="4">
+					<img src="#" class="ad2">
+					</td>
+				</tr>
+				<tr>
+					<td class="ad" >
+					<p class="today">이번달 대외활동 리스트</p><a href="#">|<img src="검색버튼.png">관심주제 설정</a>
+					<table class="category" border="1">
+					<tr>
+						<td data="data1">과학/기술</td>
+						<td data="data2">인문</td>
+						<td data="data3">마케팅</td>
+						<td data="data4">예술</td>
+						<td data="data5">기타</td>
+				
+					</tr>
+					</table>
+					</td>
+
+				</tr>
+				
+					</td>
+
+				</tr>
+             
+				<tr>
+					<td class="ad">
+					
+					</td>
+				</tr>
+			</table>
+		</section>
+		</div>
+        <div class="profilelist">
+            <ul>
+                <li>마이페이지</li>
+                <li>마이페이지</li>
+                <li>마이페이지</li>
+                <li>마이페이지</li>
+            </ul>
+        </div>
+      
+		</body>
+</html>
+
+
+<div class="recommendlist">
+    <ul>
+        <li>행복지역아동센터 교육봉사 대학생부문 선발</li>
+        
+        <li>SK 이노베이션 그린 에듀케이션 뭐시기 모집</li>
+        
+        <li>현대차 정몽구재단 대학생 서포터즈 모집</li>
+        
+        <li>셀레브리티 뷰티 홍보단 월 활동비 15만원</li>
+        
+        <li> AI 국비지원 교육기관 경기도 과학진흥원</li>     
+    </ul>
+</div>
